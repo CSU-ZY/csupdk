@@ -102,6 +102,10 @@ class LAYER(gf.LayerEnum):
     ND_Ohmic: Layer = (36,0)
     PD_Ohmic: Layer = (37,0)
 
+
+    #中间还可以任意添加层数
+
+
     #注释部分：
     Label_Optical_IO: Layer = (95,0)
     Label_Settings: Layer = (96,0)
