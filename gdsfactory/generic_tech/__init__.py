@@ -128,9 +128,9 @@ PORT_LAYER_TO_TYPE = {
     LAYER.WG: "optical",
     LAYER.WGN: "optical",
     LAYER.SiO_WG_3_Slab: "optical",
-    LAYER.Metal_TiN: "dc",
-    LAYER.Metal_Ti: "dc",    
-    LAYER.Metal_Al: "dc",
+    LAYER.Metal_Ti: "dc",
+    LAYER.Metal_Al: "dc",    
+    #LAYER.M3: "dc",  #没有M3
     LAYER.TE: "vertical_te",
     LAYER.TM: "vertical_tm",
 }
