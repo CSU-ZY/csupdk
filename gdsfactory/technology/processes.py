@@ -58,7 +58,7 @@ class Lithography(ProcessStep):
                 |__________________|
         0       1        2         3          0       1        2         3
                 <------------------>
-                      layers_and
+                      layers_diff
 
     if argument_layers is provided to layers_xor, for those layers:
 

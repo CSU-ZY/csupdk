@@ -1,6 +1,7 @@
 """You can define a path as list of points.
 
 To create a component you need to extrude the path with a cross-section.
+创建一个组件，需要用横截面挤压路径
 """
 
 from __future__ import annotations
@@ -35,6 +36,7 @@ nm = 1e-3
 Layer: TypeAlias = tuple[int, int]
 Layers: TypeAlias = tuple[Layer, ...]
 WidthTypes: TypeAlias = Literal["sine", "linear", "parabolic"]
+                                #宽度类型  限制在[正弦、线性、抛物线]中
 
 LayerSpec: TypeAlias = Layer | str
 LayerSpecs: TypeAlias = Iterable[LayerSpec]
@@ -63,6 +65,7 @@ deprecated = {
     "end_straight_length",
     "gap",
 }
+#已弃用？
 
 deprecated_pins = {
     "add_pins_function_name",
@@ -174,14 +177,15 @@ Sections = tuple[Section, ...]
 
 
 class CrossSection(BaseModel):
-    """Waveguide information to extrude a path.
+    """Waveguide information to extrude a path.\n
+    挤压路径的波导信息
 
     Parameters:
         sections: tuple of Sections(width, offset, layer, ports).
         components_along_path: tuple of ComponentAlongPaths.
         radius: default bend radius for routing (um).
-        radius_min: minimum acceptable bend radius.
-        bbox_layers: layer to add as bounding box.
+        radius_min: minimum acceptable bend radius.可接受的最小弯曲半径
+        bbox_layers: layer to add as bounding box.边界层
         bbox_offsets: offset to add to the bounding box.
 
     .. code::
@@ -451,7 +455,8 @@ _cross_section_default_names = {}
 
 
 def xsection(func: Callable[..., CrossSection]) -> Callable[..., CrossSection]:
-    """Decorator to register a cross section function.
+    """Decorator to register a cross section function.\n
+    缓存器，
 
     Ensures that the cross-section name matches the name of the function that generated it when created using default parameters
 

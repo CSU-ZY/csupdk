@@ -10,6 +10,7 @@ import gdsfactory as gf
 from gdsfactory.component import Component
 from gdsfactory.typings import ComponentFactory, CrossSectionSpec
 
+from gdsfactory.generic_tech.layer_map import LAYER
 
 @gf.cell
 def free_propagation_region(
@@ -122,7 +123,10 @@ def awg(
         free_propagation_region_output_function: for output.
         fpr_spacing: x separation between input/output free propagation region.
         arm_spacing: y separation between arms.
-        cross_section: cross_section function.
+        cross_section: cross_section function.\n
+        这部分cross_section类型是“strip”
+        strip的定义中可以看出其layer: LayerSpec = "WG"
+        WG: Layer = (1, 0)
     """
     c = Component()
     fpr_in = free_propagation_region_input_function(
@@ -161,6 +165,6 @@ def awg(
 
 
 if __name__ == "__main__":
-    # c = free_propagation_region(inputs=2, outputs=4)
+    #c = free_propagation_region(inputs=2, outputs=4)
     c = awg()
     c.show()
