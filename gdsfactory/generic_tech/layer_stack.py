@@ -28,7 +28,7 @@ class LayerStackParameters:
     zmin_heater: float = 1.1                           #?
     thickness_heater_clad: float = 20                  #加热层TiN_氧化层um
     thickness_metal_Ti: float = 1400 * nm              #间隔层厚度
-    zmin_metal_Ti: float = 1.1                        #?
+    zmin_metal_Ti: float = 1.1                         #?
     thickness_metal_Al: float = 700 * nm               #电极层Al的厚度：？
     zmin_metal_Al: float = 2.3                         #?
     thickness_SiN: float = 350 * nm                    #保护层SiN厚度：？
@@ -257,18 +257,18 @@ def get_process() -> tuple[ProcessStep, ...]:
     """
     return (
         Etch(
-            name="strip_etch",           #220nm波导层
+            name="strip_etch",                   #220nm波导层
             layer=LAYER.WG,
             layers_or=[LAYER.SiO_WG_2_Slab],
             #mask open = WG + SiO_WG_2_Slab
             depth=LayerStackParameters.thickness_wg
-            + 0.01,  # slight overetch for numerics 轻微刻深一点
+            + 0.01,                              # slight overetch for numerics 轻微刻深一点
             material="silicon",
-            resist_thickness=1.0,     #光刻胶厚度
-            positive_tone=False,      #flase代表负胶
+            resist_thickness=1.0,                #光刻胶厚度
+            positive_tone=False,                 #flase代表负胶
         ),
         Etch(
-            name="slab_etch",             #波导上的刻蚀，slab
+            name="slab_etch",                    #波导上的刻蚀，slab
             layer=LAYER.SiO_WG_2_Slab,
             layers_diff=[LAYER.WG],
             depth=LayerStackParameters.thickness_wg
@@ -287,13 +287,13 @@ def get_process() -> tuple[ProcessStep, ...]:
         ImplantPhysical(
             name="deep_NWD_implant",
             layer=LAYER.NWD,
-            energy=100, #指定离子的能量，单位通常是电子伏特（eV）
-            ion="P", #注入的离子种类，用于N型掺杂
-            #"As",表示注入的是砷离子。
-            #"P",表示注入的是磷离子（Phosphorus）。磷离子通常用于掺杂硅以调节其导电性。
+            energy=100,                         #指定离子的能量，单位通常是电子伏特（eV）
+            ion="P",                            #注入的离子种类，用于N型掺杂
+                                                #"As",表示注入的是砷离子。
+                                                #"P",表示注入的是磷离子（Phosphorus）。磷离子通常用于掺杂硅以调节其导电性。
             dose=1e12,
-            #dose 参数表示注入的离子数量，单位通常是每单位面积的离子数量。这里设置为 1e12，即每单位面积注入 10的12次方个离子。
-            resist_thickness=1.0,#光刻胶的厚度
+                                                #dose 参数表示注入的离子数量，单位通常是每单位面积的离子数量。这里设置为 1e12，即每单位面积注入 10的12次方个离子。
+            resist_thickness=1.0,               #光刻胶的厚度
         ),
         ImplantPhysical(
             name="shallow_NWD_implant",
@@ -307,9 +307,9 @@ def get_process() -> tuple[ProcessStep, ...]:
             name="deep_PWD_implant",
             layer=LAYER.PWD,
             energy=50,
-            ion="B", #用于P型掺杂
-            #"B",表示硼离子
-            #"Al",铝离子也可以用于P型掺杂
+            ion="B",                            #用于P型掺杂
+                                                #"B",表示硼离子
+                                                #"Al",铝离子也可以用于P型掺杂
             dose=1e12,
             resist_thickness=1.0,
         ),
@@ -431,4 +431,7 @@ if __name__ == "__main__":
     # print(ls.get_layer_to_thickness())
 
     for layername, layer in WAFER_STACK.layers.items():
+        print(layername, layer.zmin, layer.thickness)
+
+    for layername, layer in LAYER_STACK.layers.items():
         print(layername, layer.zmin, layer.thickness)
