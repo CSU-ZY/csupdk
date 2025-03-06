@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-properties>
  <properties>
-  <frame-color> #00ffff</frame-color>   #框架颜色：粉色
-  <fill-color> #00ffff</fill-color>     #填充颜色：粉色
-  <frame-brightness>0</frame-brightness>  #框架明亮度：?
-  <fill-brightness>0</fill-brightness>    #填充明亮度：?
-  <dither-pattern>I3</dither-pattern>     #图层的图案填充样式（数字越大，填充越稀疏）
-  <line-style/>                           #线形
-  <valid>true</valid>                     #图层是否有效
-  <visible>true</visible>                 #图层是否可见
-  <transparent>false</transparent>        #图层是否透明
-  <width>1</width>                        #线宽（边框的宽度）
-  <marked>false</marked>                  #图层是否被标记
-  <xfill>false</xfill>                    #控制图层是否填充
-  <animation>0</animation>                #图层是否有动画效果（0-静态设计）
-  <name>Si_Sub 88/0</name>                #图层名称
-  <source>88/0@1</source>                 #图层来源（图层的标识符或其他相关的信息）
+  <frame-color>#00ffff</frame-color>
+  <fill-color>#00ffff</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I3</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>Si_Sub 88/0</name>
+  <source>88/0@1</source>
  </properties>
   <properties>
-  <frame-color> #00FF7F</frame-color>
-  <fill-color>	#00FF7F</fill-color>
+  <frame-color>#00ff7f</frame-color>
+  <fill-color>#00ff7f</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I10</dither-pattern>
@@ -35,8 +35,8 @@
   <source>87/0@1</source>
  </properties>
   <properties>
-  <frame-color> #ff9d9d</frame-color>
-  <fill-color>	#ff9d9d</fill-color>
+  <frame-color>#ff9d9d</frame-color>
+  <fill-color>#ff9d9d</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I7</dither-pattern>
@@ -52,8 +52,8 @@
   <source>200/0@1</source>
  </properties>
   <properties>
-  <frame-color>	#4169E1</frame-color>
-  <fill-color>	#4169E1</fill-color>
+  <frame-color>#4169e1</frame-color>
+  <fill-color>#4169e1</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I5</dither-pattern>
@@ -69,8 +69,8 @@
   <source>201/0@1</source>
  </properties>
  <properties>
-  <frame-color> #FF1493</frame-color>
-  <fill-color> #FF1493</fill-color>
+  <frame-color>#ff1493</frame-color>
+  <fill-color>#ff1493</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I2</dither-pattern>
@@ -86,8 +86,8 @@
   <source>1/1@1</source>
  </properties>
  <properties>
-  <frame-color> #FF1493</frame-color>
-  <fill-color> #FF1493</fill-color>
+  <frame-color>#ff1493</frame-color>
+  <fill-color>#ff1493</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -102,9 +102,9 @@
   <name>Full_Etch 1/2</name>
   <source>1/2@1</source>
  </properties>
-  <properties>
-  <frame-color> #1E90FF</frame-color>
-  <fill-color> #1E90FF</fill-color>
+ <properties>
+  <frame-color>#1e90ff</frame-color>
+  <fill-color>#1e90ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I2</dither-pattern>
@@ -120,8 +120,8 @@
   <source>2/1@1</source>
  </properties>
  <properties>
-  <frame-color> #1E90FF</frame-color>
-  <fill-color> #1E90FF</fill-color>
+  <frame-color>#1e90ff</frame-color>
+  <fill-color>#1e90ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -136,9 +136,9 @@
   <name>Deep_Etch 2/2</name>
   <source>2/2@1</source>
  </properties>
-  <properties>
-  <frame-color> #FFD700</frame-color>
-  <fill-color> #FFD700</fill-color>
+ <properties>
+  <frame-color>#ffd700</frame-color>
+  <fill-color>#ffd700</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I2</dither-pattern>
@@ -154,8 +154,8 @@
   <source>3/1@1</source>
  </properties>
  <properties>
-  <frame-color> #FFD700</frame-color>
-  <fill-color> #FFD700</fill-color>
+  <frame-color>#ffd700</frame-color>
+  <fill-color>#ffd700</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -171,8 +171,8 @@
   <source>3/2@1</source>
  </properties>
  <properties>
-  <frame-color> #F08080</frame-color>
-  <fill-color> #F08080</fill-color>
+  <frame-color>#f08080</frame-color>
+  <fill-color>#f08080</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I3</dither-pattern>
@@ -180,7 +180,7 @@
   <valid>true</valid>
   <visible>true</visible>
   <transparent>false</transparent>
-  <width/>
+  <width>1</width>
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
@@ -188,8 +188,8 @@
   <source>4/0@1</source>
  </properties>
  <properties>
-  <frame-color> #FFFF00</frame-color>
-  <fill-color>	#FFFF00</fill-color>
+  <frame-color>#ffff00</frame-color>
+  <fill-color>#ffff00</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I0</dither-pattern>
@@ -205,8 +205,8 @@
   <source>10/0@1</source>
  </properties>
  <properties>
-  <frame-color> #cc0000</frame-color>
-  <fill-color> #cc0000</fill-color>
+  <frame-color>#cc0000</frame-color>
+  <fill-color>#cc0000</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I4</dither-pattern>
@@ -221,9 +221,9 @@
   <name>SiO_Oxide_1 11/0</name>
   <source>11/0@1</source>
  </properties>
-  <properties>
-  <frame-color> #B0C4DE</frame-color>
-  <fill-color>	#B0C4DE</fill-color>
+ <properties>
+  <frame-color>#b0c4de</frame-color>
+  <fill-color>#b0c4de</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I0</dither-pattern>
@@ -239,8 +239,8 @@
   <source>12/0@1</source>
  </properties>
  <properties>
-  <frame-color> #E1FFFF</frame-color>
-  <fill-color>	#E1FFFF</fill-color>
+  <frame-color>#e1ffff</frame-color>
+  <fill-color>#e1ffff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I0</dither-pattern>
@@ -256,8 +256,8 @@
   <source>13/0@1</source>
  </properties>
  <properties>
-  <frame-color> #FF00FF</frame-color>
-  <fill-color> #FF00FF</fill-color>
+  <frame-color>#ff00ff</frame-color>
+  <fill-color>#ff00ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I20</dither-pattern>
@@ -272,7 +272,7 @@
   <name>SiN 20/0</name>
   <source>20/0@1</source>
  </properties>
- <properties>              #这部分是掺杂层，组别的颜色不能更改，不然整组都会变成相应颜色
+ <properties>
   <frame-color/>
   <fill-color/>
   <frame-brightness>0</frame-brightness>
@@ -289,8 +289,8 @@
   <name>Doping</name>
   <source>*/*@*</source>
   <group-members>
-   <frame-color> #ff0000</frame-color>
-   <fill-color> #ff0000</fill-color>
+   <frame-color>#ff0000</frame-color>
+   <fill-color>#ff0000</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I5</dither-pattern>
@@ -305,9 +305,9 @@
    <name>NWD 30/0</name>
    <source>30/0@1</source>
   </group-members>
-    <group-members>
-   <frame-color> #0000ff</frame-color>
-   <fill-color> #0000ff</fill-color>
+  <group-members>
+   <frame-color>#0000ff</frame-color>
+   <fill-color>#0000ff</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I5</dither-pattern>
@@ -323,8 +323,8 @@
    <source>31/0@1</source>
   </group-members>
   <group-members>
-   <frame-color> #ff0000</frame-color>
-   <fill-color> #ff0000</fill-color>
+   <frame-color>#ff0000</frame-color>
+   <fill-color>#ff0000</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I10</dither-pattern>
@@ -339,9 +339,9 @@
    <name>ND1 32/0</name>
    <source>32/0@1</source>
   </group-members>
-    <group-members>
-   <frame-color> #0000ff</frame-color>
-   <fill-color> #0000ff</fill-color>
+  <group-members>
+   <frame-color>#0000ff</frame-color>
+   <fill-color>#0000ff</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I10</dither-pattern>
@@ -357,8 +357,8 @@
    <source>33/0@1</source>
   </group-members>
   <group-members>
-   <frame-color> #ff0000</frame-color>
-   <fill-color> #ff0000</fill-color>
+   <frame-color>#ff0000</frame-color>
+   <fill-color>#ff0000</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I3</dither-pattern>
@@ -374,8 +374,8 @@
    <source>34/0@1</source>
   </group-members>
   <group-members>
-   <frame-color> #0000ff</frame-color>
-   <fill-color> #0000ff</fill-color>
+   <frame-color>#0000ff</frame-color>
+   <fill-color>#0000ff</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I3</dither-pattern>
@@ -391,8 +391,8 @@
    <source>35/0@1</source>
   </group-members>
   <group-members>
-   <frame-color> #F0E68C</frame-color>
-   <fill-color> #F0E68C</fill-color>
+   <frame-color>#f0e68c</frame-color>
+   <fill-color>#f0e68c</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I21</dither-pattern>
@@ -408,8 +408,8 @@
    <source>36/0@1</source>
   </group-members>
   <group-members>
-   <frame-color> #F4A460</frame-color>
-   <fill-color> #F4A460</fill-color>
+   <frame-color>#f4a460</frame-color>
+   <fill-color>#f4a460</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I21</dither-pattern>
@@ -424,10 +424,10 @@
    <name>PD_Ohmic 37/0</name>
    <source>37/0@1</source>
   </group-members>
-  </properties>
-   <properties>
-  <frame-color> #0000ff</frame-color>
-  <fill-color> #0000ff</fill-color>
+ </properties>
+ <properties>
+  <frame-color>#0000ff</frame-color>
+  <fill-color>#0000ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern/>
@@ -443,8 +443,8 @@
   <source>203/0@1</source>
  </properties>
  <properties>
-  <frame-color> #ff0000</frame-color>
-  <fill-color> #ff0000</fill-color>
+  <frame-color>#ff0000</frame-color>
+  <fill-color>#ff0000</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern/>
@@ -459,9 +459,9 @@
   <name>TM 204/0</name>
   <source>204/0@1</source>
  </properties>
-  <properties>
-  <frame-color> 	#FF00FF</frame-color>
-  <fill-color> 	#FF00FF</fill-color>
+ <properties>
+  <frame-color>#ff00ff</frame-color>
+  <fill-color>#ff00ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern/>
@@ -477,8 +477,8 @@
   <source>140/10@1</source>
  </properties>
  <properties>
-  <frame-color> #FFD700</frame-color>
-  <fill-color> #FFD700</fill-color>
+  <frame-color>#cc4c00</frame-color>
+  <fill-color>#cc4c00</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern/>
@@ -493,9 +493,9 @@
   <name>PORTE 140/11</name>
   <source>140/11@1</source>
  </properties>
-  <properties>                            #最后一部分
-  <frame-color> #0000ff</frame-color>
-  <fill-color> #0000ff</fill-color>
+ <properties>
+  <frame-color>#0000ff</frame-color>
+  <fill-color>#0000ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -511,8 +511,8 @@
   <source>95/0@1</source>
  </properties>
  <properties>
-  <frame-color> #ff00ff</frame-color>
-  <fill-color> #ff00ff</fill-color>
+  <frame-color>#ff00ff</frame-color>
+  <fill-color>#ff00ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -527,9 +527,9 @@
   <name>Label_Settings 96/0</name>
   <source>96/0@1</source>
  </properties>
-  <properties>
-  <frame-color> #808080</frame-color>
-  <fill-color> #808080</fill-color>
+ <properties>
+  <frame-color>#808080</frame-color>
+  <fill-color>#808080</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -545,8 +545,8 @@
   <source>97/0@1</source>
  </properties>
  <properties>
-  <frame-color> #01ff6b</frame-color>
-  <fill-color> #01ff6b</fill-color>
+  <frame-color>#01ff6b</frame-color>
+  <fill-color>#01ff6b</fill-color>
   <frame-brightness>-16</frame-brightness>
   <fill-brightness>-16</fill-brightness>
   <dither-pattern>I3</dither-pattern>
@@ -561,9 +561,9 @@
   <name>DA 98/0</name>
   <source>98/0@1</source>
  </properties>
-  <properties>
-  <frame-color> #004080</frame-color>
-  <fill-color> #004080</fill-color>
+ <properties>
+  <frame-color>#004080</frame-color>
+  <fill-color>#004080</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -579,8 +579,8 @@
   <source>99/0@1</source>
  </properties>
  <properties>
-  <frame-color> #808080</frame-color>
-  <fill-color> #808080</fill-color>
+  <frame-color>#808080</frame-color>
+  <fill-color>#808080</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -592,7 +592,7 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>Errors</name>
+  <name>Errors 69/0</name>
   <source>69/0@1</source>
  </properties>
  <properties>
@@ -609,7 +609,7 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>XSECTION</name>                      #这部分不确定代表什么...
+  <name>XSECTION</name>
   <source>*/*@*</source>
   <group-members>
    <frame-color>#f3ff80</frame-color>
@@ -1105,9 +1105,9 @@
    <source>999/0@1</source>
   </group-members>
  </properties>
-  <properties>
-  <frame-color>rgb(132, 0, 255)</frame-color>
-  <fill-color>	rgb(132, 0, 255)</fill-color>
+ <properties>
+  <frame-color>#8400ff</frame-color>
+  <fill-color>#8400ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I10</dither-pattern>
