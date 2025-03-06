@@ -1,8 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-properties>
  <properties>
-  <frame-color>#ff9d9d</frame-color>
-  <fill-color>#ff9d9d</fill-color>
+  <frame-color> #00ffff</frame-color>   #框架颜色：粉色
+  <fill-color> #00ffff</fill-color>     #填充颜色：粉色
+  <frame-brightness>0</frame-brightness>  #框架明亮度：?
+  <fill-brightness>0</fill-brightness>    #填充明亮度：?
+  <dither-pattern>I3</dither-pattern>     #图层的图案填充样式（数字越大，填充越稀疏）
+  <line-style/>                           #线形
+  <valid>true</valid>                     #图层是否有效
+  <visible>true</visible>                 #图层是否可见
+  <transparent>false</transparent>        #图层是否透明
+  <width>1</width>                        #线宽（边框的宽度）
+  <marked>false</marked>                  #图层是否被标记
+  <xfill>false</xfill>                    #控制图层是否填充
+  <animation>0</animation>                #图层是否有动画效果（0-静态设计）
+  <name>Si_Sub 88/0</name>                #图层名称
+  <source>88/0@1</source>                 #图层来源（图层的标识符或其他相关的信息）
+ </properties>
+  <properties>
+  <frame-color> #00FF7F</frame-color>
+  <fill-color>	#00FF7F</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I10</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>true</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>SiO_Bottom_Clad 87/0</name>
+  <source>87/0@1</source>
+ </properties>
+  <properties>
+  <frame-color> #ff9d9d</frame-color>
+  <fill-color>	#ff9d9d</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I7</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>true</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>WG 200/0</name>
+  <source>200/0@1</source>
+ </properties>
+  <properties>
+  <frame-color>	#4169E1</frame-color>
+  <fill-color>	#4169E1</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I5</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>true</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>WGN 201/0</name>
+  <source>201/0@1</source>
+ </properties>
+ <properties>
+  <frame-color> #FF1493</frame-color>
+  <fill-color> #FF1493</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I2</dither-pattern>
@@ -14,32 +82,15 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>Waveguide</name>
-  <source>1/0@1</source>
+  <name>SLAB0 1/1</name>
+  <source>1/1@1</source>
  </properties>
  <properties>
-  <frame-color>#c0c0c0</frame-color>
-  <fill-color>#c0c0c0</fill-color>
+  <frame-color> #FF1493</frame-color>
+  <fill-color> #FF1493</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>false</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>WGCLAD 111/0</name>
-  <source>111/0@1</source>
- </properties>
- <properties>
-  <frame-color>#00ffff</frame-color>
-  <fill-color>#00ffff</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
+  <dither-pattern>I1</dither-pattern>
   <line-style/>
   <valid>true</valid>
   <visible>true</visible>
@@ -48,12 +99,80 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>SLAB150 2/0</name>
-  <source>2/0@1</source>
+  <name>Full_Etch 1/2</name>
+  <source>1/2@1</source>
+ </properties>
+  <properties>
+  <frame-color> #1E90FF</frame-color>
+  <fill-color> #1E90FF</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I2</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>SLAB90 2/1</name>
+  <source>2/1@1</source>
  </properties>
  <properties>
-  <frame-color>#0000ff</frame-color>
-  <fill-color>#0000ff</fill-color>
+  <frame-color> #1E90FF</frame-color>
+  <fill-color> #1E90FF</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I1</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>true</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>Deep_Etch 2/2</name>
+  <source>2/2@1</source>
+ </properties>
+  <properties>
+  <frame-color> #FFD700</frame-color>
+  <fill-color> #FFD700</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I2</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>SLAB150 3/1</name>
+  <source>3/1@1</source>
+ </properties>
+ <properties>
+  <frame-color> #FFD700</frame-color>
+  <fill-color> #FFD700</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I1</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>true</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>Shallow_Etch 3/2</name>
+  <source>3/2@1</source>
+ </properties>
+ <properties>
+  <frame-color> #F08080</frame-color>
+  <fill-color> #F08080</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I3</dither-pattern>
@@ -65,15 +184,15 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>SHALLOW_ETCH 2/6</name>
-  <source>2/6@1</source>
+  <name>SiO_ToP_Clad 4/0</name>
+  <source>4/0@1</source>
  </properties>
  <properties>
-  <frame-color>#805000</frame-color>
-  <fill-color>#805000</fill-color>
+  <frame-color> #FFFF00</frame-color>
+  <fill-color>	#FFFF00</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
+  <dither-pattern>I0</dither-pattern>
   <line-style/>
   <valid>true</valid>
   <visible>true</visible>
@@ -82,12 +201,12 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>SLAB90 3/0</name>
-  <source>3/0@1</source>
+  <name>Metal_TiN 10/0</name>
+  <source>10/0@1</source>
  </properties>
  <properties>
-  <frame-color>#cc0000</frame-color>
-  <fill-color>#cc0000</fill-color>
+  <frame-color> #cc0000</frame-color>
+  <fill-color> #cc0000</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I4</dither-pattern>
@@ -99,44 +218,61 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>DEEP_ETCH 3/6</name>
-  <source>3/6@1</source>
+  <name>SiO_Oxide_1 11/0</name>
+  <source>11/0@1</source>
  </properties>
- <properties>
-  <frame-color>#9999cc</frame-color>
-  <fill-color>#80a8ff</fill-color>
+  <properties>
+  <frame-color> #B0C4DE</frame-color>
+  <fill-color>	#B0C4DE</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
+  <dither-pattern>I0</dither-pattern>
   <line-style/>
   <valid>true</valid>
-  <visible>false</visible>
+  <visible>true</visible>
   <transparent>false</transparent>
   <width>1</width>
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>SLAB150CLAD 2/9</name>
-  <source>2/9@1</source>
+  <name>Metal_Al 12/0</name>
+  <source>12/0@1</source>
  </properties>
  <properties>
-  <frame-color>#9999cc</frame-color>
-  <fill-color>#80a8ff</fill-color>
+  <frame-color> #E1FFFF</frame-color>
+  <fill-color>	#E1FFFF</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
-  <dither-pattern>I1</dither-pattern>
+  <dither-pattern>I0</dither-pattern>
   <line-style/>
   <valid>true</valid>
-  <visible>false</visible>
+  <visible>true</visible>
   <transparent>false</transparent>
   <width>1</width>
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>SLAB90CLAD 3/1</name>
-  <source>3/1@1</source>
+  <name>Metal_Ti 13/0</name>
+  <source>13/0@1</source>
  </properties>
  <properties>
+  <frame-color> #FF00FF</frame-color>
+  <fill-color> #FF00FF</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I20</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>SiN 20/0</name>
+  <source>20/0@1</source>
+ </properties>
+ <properties>              #这部分是掺杂层，组别的颜色不能更改，不然整组都会变成相应颜色
   <frame-color/>
   <fill-color/>
   <frame-brightness>0</frame-brightness>
@@ -153,8 +289,8 @@
   <name>Doping</name>
   <source>*/*@*</source>
   <group-members>
-   <frame-color>#ff0000</frame-color>
-   <fill-color>#ff0000</fill-color>
+   <frame-color> #ff0000</frame-color>
+   <fill-color> #ff0000</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I5</dither-pattern>
@@ -166,46 +302,12 @@
    <marked>false</marked>
    <xfill>false</xfill>
    <animation>0</animation>
-   <name>N 20/0</name>
-   <source>20/0@1</source>
+   <name>NWD 30/0</name>
+   <source>30/0@1</source>
   </group-members>
-  <group-members>
-   <frame-color>#ff0000</frame-color>
-   <fill-color>#ff0000</fill-color>
-   <frame-brightness>0</frame-brightness>
-   <fill-brightness>0</fill-brightness>
-   <dither-pattern>I5</dither-pattern>
-   <line-style/>
-   <valid>true</valid>
-   <visible>true</visible>
-   <transparent>false</transparent>
-   <width>1</width>
-   <marked>false</marked>
-   <xfill>false</xfill>
-   <animation>0</animation>
-   <name>NP 22/0</name>
-   <source>22/0@1</source>
-  </group-members>
-  <group-members>
-   <frame-color>#ff0000</frame-color>
-   <fill-color>#ff0000</fill-color>
-   <frame-brightness>0</frame-brightness>
-   <fill-brightness>0</fill-brightness>
-   <dither-pattern>I3</dither-pattern>
-   <line-style/>
-   <valid>true</valid>
-   <visible>true</visible>
-   <transparent>false</transparent>
-   <width>1</width>
-   <marked>false</marked>
-   <xfill>false</xfill>
-   <animation>0</animation>
-   <name>NPP 24/0</name>
-   <source>24/0@1</source>
-  </group-members>
-  <group-members>
-   <frame-color>#0000ff</frame-color>
-   <fill-color>#0000ff</fill-color>
+    <group-members>
+   <frame-color> #0000ff</frame-color>
+   <fill-color> #0000ff</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I5</dither-pattern>
@@ -217,15 +319,15 @@
    <marked>false</marked>
    <xfill>false</xfill>
    <animation>0</animation>
-   <name>P_210</name>
-   <source>21/0@1</source>
+   <name>PWD 31/0</name>
+   <source>31/0@1</source>
   </group-members>
   <group-members>
-   <frame-color>#0000ff</frame-color>
-   <fill-color>#0000ff</fill-color>
+   <frame-color> #ff0000</frame-color>
+   <fill-color> #ff0000</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
-   <dither-pattern>I5</dither-pattern>
+   <dither-pattern>I10</dither-pattern>
    <line-style/>
    <valid>true</valid>
    <visible>true</visible>
@@ -234,15 +336,15 @@
    <marked>false</marked>
    <xfill>false</xfill>
    <animation>0</animation>
-   <name>PP 23/0</name>
-   <source>23/0@1</source>
+   <name>ND1 32/0</name>
+   <source>32/0@1</source>
   </group-members>
-  <group-members>
-   <frame-color>#0000ff</frame-color>
-   <fill-color>#0000ff</fill-color>
+    <group-members>
+   <frame-color> #0000ff</frame-color>
+   <fill-color> #0000ff</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
-   <dither-pattern>I6</dither-pattern>
+   <dither-pattern>I10</dither-pattern>
    <line-style/>
    <valid>true</valid>
    <visible>true</visible>
@@ -251,15 +353,15 @@
    <marked>false</marked>
    <xfill>false</xfill>
    <animation>0</animation>
-   <name>PPP 25/0</name>
-   <source>25/0@1</source>
+   <name>PD1 33/0</name>
+   <source>33/0@1</source>
   </group-members>
   <group-members>
-   <frame-color>#ccb27f</frame-color>
-   <fill-color>#ccb27f</fill-color>
+   <frame-color> #ff0000</frame-color>
+   <fill-color> #ff0000</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
-   <dither-pattern>I13</dither-pattern>
+   <dither-pattern>I3</dither-pattern>
    <line-style/>
    <valid>true</valid>
    <visible>true</visible>
@@ -268,12 +370,29 @@
    <marked>false</marked>
    <xfill>false</xfill>
    <animation>0</animation>
-   <name>PDPP 27/0</name>
-   <source>27/0@1</source>
+   <name>ND2 34/0</name>
+   <source>34/0@1</source>
   </group-members>
   <group-members>
-   <frame-color>#cc00cc</frame-color>
-   <fill-color>#cc00cc</fill-color>
+   <frame-color> #0000ff</frame-color>
+   <fill-color> #0000ff</fill-color>
+   <frame-brightness>0</frame-brightness>
+   <fill-brightness>0</fill-brightness>
+   <dither-pattern>I3</dither-pattern>
+   <line-style/>
+   <valid>true</valid>
+   <visible>true</visible>
+   <transparent>false</transparent>
+   <width>1</width>
+   <marked>false</marked>
+   <xfill>false</xfill>
+   <animation>0</animation>
+   <name>PD2 35/0</name>
+   <source>35/0@1</source>
+  </group-members>
+  <group-members>
+   <frame-color> #F0E68C</frame-color>
+   <fill-color> #F0E68C</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I21</dither-pattern>
@@ -285,12 +404,12 @@
    <marked>false</marked>
    <xfill>false</xfill>
    <animation>0</animation>
-   <name>GENPP 26/0</name>
-   <source>26/0@1</source>
+   <name>ND_Ohmic 36/0</name>
+   <source>36/0@1</source>
   </group-members>
   <group-members>
-   <frame-color>#cc00cc</frame-color>
-   <fill-color>#cc00cc</fill-color>
+   <frame-color> #F4A460</frame-color>
+   <fill-color> #F4A460</fill-color>
    <frame-brightness>0</frame-brightness>
    <fill-brightness>0</fill-brightness>
    <dither-pattern>I21</dither-pattern>
@@ -302,336 +421,13 @@
    <marked>false</marked>
    <xfill>false</xfill>
    <animation>0</animation>
-   <name>GEPPP 29/0</name>
-   <source>29/0@1</source>
+   <name>PD_Ohmic 37/0</name>
+   <source>37/0@1</source>
   </group-members>
- </properties>
- <properties>
-  <frame-color>#ff8000</frame-color>
-  <fill-color>#ff8000</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I4</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>true</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>WGN_Nitride 34/0</name>
-  <source>34/0@1</source>
- </properties>
- <properties>
-  <frame-color>#c0c0c0</frame-color>
-  <fill-color>#c0c0c0</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>false</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>WGclad_material 36/0</name>
-  <source>36/0@1</source>
- </properties>
- <properties>
-  <frame-color>#ff00ff</frame-color>
-  <fill-color>#ff00ff</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I2</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>GE 5/0</name>
-  <source>5/0@1</source>
- </properties>
- <properties>
-  <frame-color>#cc4c00</frame-color>
-  <fill-color>#cc4c00</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>SILICIDE 39/0</name>
-  <source>39/0@1</source>
- </properties>
- <properties>
-  <frame-color>#ff8000</frame-color>
-  <fill-color>#ff8000</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>true</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>MH 47/0</name>
-  <source>47/0@1</source>
- </properties>
- <properties>
-  <frame-color>#01ff6b</frame-color>
-  <fill-color>#01ff6b</fill-color>
-  <frame-brightness>-16</frame-brightness>
-  <fill-brightness>-16</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>M1 41/0</name>
-  <source>41/0@1</source>
- </properties>
- <properties>
-  <frame-color>#008050</frame-color>
-  <fill-color>#008050</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>M2 45/0</name>
-  <source>45/0@1</source>
- </properties>
- <properties>
-  <frame-color>#008080</frame-color>
-  <fill-color>#800057</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width/>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>M3 49/0</name>
-  <source>49/0@1</source>
- </properties>
- <properties>
-  <frame-color>#cc4c00</frame-color>
-  <fill-color>#cc4c00</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I0</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>VIAC 40/0</name>
-  <source>40/0@1</source>
- </properties>
- <properties>
-  <frame-color>#808080</frame-color>
-  <fill-color>#808080</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I0</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>VIA1 44/0</name>
-  <source>44/0@1</source>
- </properties>
- <properties>
-  <frame-color>#805000</frame-color>
-  <fill-color>#805000</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I0</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>VIA2 43/0</name>
-  <source>43/0@1</source>
- </properties>
- <properties>
-  <frame-color>#805000</frame-color>
-  <fill-color>#805000</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I2</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>CAPACITOR 42/0</name>
-  <source>42/0@1</source>
- </properties>
- <properties>
-  <frame-color>#606060</frame-color>
-  <fill-color>#606060</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I12</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>METALOPEN 46/0</name>
-  <source>46/0@1</source>
- </properties>
- <properties>
-  <frame-color>#9999cc</frame-color>
-  <fill-color>#9999cc</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I9</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>DEEPTRENCH 4/0</name>
-  <source>4/0@1</source>
- </properties>
- <properties>
-  <frame-color>#808080</frame-color>
-  <fill-color>#808080</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I6</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>OXIDE_ETCH 6/0</name>
-  <source>6/0@1</source>
- </properties>
- <properties>
-  <frame-color>#808080</frame-color>
-  <fill-color>#808080</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>SITILES 190/0</name>
-  <source>190/0@1</source>
- </properties>
- <properties>
-  <frame-color>#91ff00</frame-color>
-  <fill-color>#91ff00</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>M1TILES 191/0</name>
-  <source>191/0@1</source>
- </properties>
- <properties>
-  <frame-color>#0000ff</frame-color>
-  <fill-color>#0000ff</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I1</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>LABEL_OPTICAL_IO 201/0</name>
-  <source>201/0@1</source>
- </properties>
- <properties>
-  <frame-color>#ff00ff</frame-color>
-  <fill-color>#ff00ff</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I1</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>false</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>LABEL_SETTINGS 202/0</name>
-  <source>202/0@1</source>
- </properties>
- <properties>
-  <frame-color>#0000ff</frame-color>
-  <fill-color>#0000ff</fill-color>
+  </properties>
+   <properties>
+  <frame-color> #0000ff</frame-color>
+  <fill-color> #0000ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern/>
@@ -647,8 +443,8 @@
   <source>203/0@1</source>
  </properties>
  <properties>
-  <frame-color>#ff0000</frame-color>
-  <fill-color>#ff0000</fill-color>
+  <frame-color> #ff0000</frame-color>
+  <fill-color> #ff0000</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern/>
@@ -663,28 +459,96 @@
   <name>TM 204/0</name>
   <source>204/0@1</source>
  </properties>
- <properties>
-  <frame-color>#ff0000</frame-color>
-  <fill-color>#ff0000</fill-color>
+  <properties>
+  <frame-color> 	#FF00FF</frame-color>
+  <fill-color> 	#FF00FF</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
-  <dither-pattern>I5</dither-pattern>
+  <dither-pattern/>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>true</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>PORT 140/10</name>
+  <source>140/10@1</source>
+ </properties>
+ <properties>
+  <frame-color> #FFD700</frame-color>
+  <fill-color> #FFD700</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern/>
   <line-style/>
   <valid>true</valid>
   <visible>true</visible>
   <transparent>false</transparent>
-  <width/>
+  <width>1</width>
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>LABEL_INSTANCES 206/0</name>
-  <source>206/0@1</source>
+  <name>PORTE 140/11</name>
+  <source>140/11@1</source>
  </properties>
- <properties>
-  <frame-color>#cc0000</frame-color>
-  <fill-color>#cc0000</fill-color>
+  <properties>                            #最后一部分
+  <frame-color> #0000ff</frame-color>
+  <fill-color> #0000ff</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
+  <dither-pattern>I1</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>Label_Optical_IO 95/0</name>
+  <source>95/0@1</source>
+ </properties>
+ <properties>
+  <frame-color> #ff00ff</frame-color>
+  <fill-color> #ff00ff</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I1</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>Label_Settings 96/0</name>
+  <source>96/0@1</source>
+ </properties>
+  <properties>
+  <frame-color> #808080</frame-color>
+  <fill-color> #808080</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I1</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>TXT 97/0</name>
+  <source>97/0@1</source>
+ </properties>
+ <properties>
+  <frame-color> #01ff6b</frame-color>
+  <fill-color> #01ff6b</fill-color>
+  <frame-brightness>-16</frame-brightness>
+  <fill-brightness>-16</fill-brightness>
   <dither-pattern>I3</dither-pattern>
   <line-style/>
   <valid>true</valid>
@@ -694,131 +558,12 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>DICING 65/0</name>
-  <source>65/0@1</source>
+  <name>DA 98/0</name>
+  <source>98/0@1</source>
  </properties>
- <properties>
-  <frame-color>#808080</frame-color>
-  <fill-color>#808080</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I1</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>false</visible>
-  <transparent>false</transparent>
-  <width>2</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>DRC_EXCLUDE 67/0</name>
-  <source>67/0@1</source>
- </properties>
- <properties>
-  <frame-color>#ffc0cb</frame-color>
-  <fill-color>#ffc0cb</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I1</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width/>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>FLOORPLAN 64/0</name>
-  <source>64/0@1</source>
- </properties>
- <properties>
-  <frame-color/>
-  <fill-color/>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern/>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width/>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>simulation</name>
-  <source>*/*@*</source>
-  <group-members>
-   <frame-color>#808080</frame-color>
-   <fill-color>#808080</fill-color>
-   <frame-brightness>0</frame-brightness>
-   <fill-brightness>0</fill-brightness>
-   <dither-pattern>I1</dither-pattern>
-   <line-style/>
-   <valid>true</valid>
-   <visible>true</visible>
-   <transparent>false</transparent>
-   <width/>
-   <marked>false</marked>
-   <xfill>false</xfill>
-   <animation>0</animation>
-   <name>SIM_REGION 100/0</name>
-   <source>100/0@1</source>
-  </group-members>
-  <group-members>
-   <frame-color>#0000ff</frame-color>
-   <fill-color>#0000ff</fill-color>
-   <frame-brightness>0</frame-brightness>
-   <fill-brightness>0</fill-brightness>
-   <dither-pattern>I1</dither-pattern>
-   <line-style/>
-   <valid>true</valid>
-   <visible>true</visible>
-   <transparent>false</transparent>
-   <width/>
-   <marked>false</marked>
-   <xfill>false</xfill>
-   <animation>0</animation>
-   <name>MONITOR 101/0</name>
-   <source>101/0@1</source>
-  </group-members>
-  <group-members>
-   <frame-color>#ff0000</frame-color>
-   <fill-color>#ff0000</fill-color>
-   <frame-brightness>0</frame-brightness>
-   <fill-brightness>0</fill-brightness>
-   <dither-pattern>I1</dither-pattern>
-   <line-style/>
-   <valid>true</valid>
-   <visible>true</visible>
-   <transparent>false</transparent>
-   <width/>
-   <marked>false</marked>
-   <xfill>false</xfill>
-   <animation>0</animation>
-   <name>SOURCE 110/0</name>
-   <source>110/0@1</source>
-  </group-members>
- </properties>
- <properties>
-  <frame-color>#800057</frame-color>
-  <fill-color>#800057</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I1</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>3</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>Lumerical</name>
-  <source>733/0@1</source>
- </properties>
- <properties>
-  <frame-color>#004080</frame-color>
-  <fill-color>#004080</fill-color>
+  <properties>
+  <frame-color> #004080</frame-color>
+  <fill-color> #004080</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -830,63 +575,12 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>DevRec</name>
-  <source>68/0@1</source>
+  <name>DevRec 99/0</name>
+  <source>99/0@1</source>
  </properties>
  <properties>
-  <frame-color>#404040</frame-color>
-  <fill-color>#404040</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I1</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width/>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>PinRec</name>
-  <source>1/10@1</source>
- </properties>
- <properties>
-  <frame-color>#004080</frame-color>
-  <fill-color>#004080</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I9</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>2</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>FbrTgt</name>
-  <source>81/0@1</source>
- </properties>
- <properties>
-  <frame-color>#808080</frame-color>
-  <fill-color>#808080</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I1</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>Text</name>
-  <source>66/0@1</source>
- </properties>
- <properties>
-  <frame-color>#808080</frame-color>
-  <fill-color>#808080</fill-color>
+  <frame-color> #808080</frame-color>
+  <fill-color> #808080</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
   <dither-pattern>I1</dither-pattern>
@@ -902,23 +596,6 @@
   <source>69/0@1</source>
  </properties>
  <properties>
-  <frame-color>#004080</frame-color>
-  <fill-color>#004080</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I1</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>PinRecM</name>
-  <source>1/11@1</source>
- </properties>
- <properties>
   <frame-color/>
   <fill-color/>
   <frame-brightness>0</frame-brightness>
@@ -932,7 +609,7 @@
   <marked>false</marked>
   <xfill>false</xfill>
   <animation>0</animation>
-  <name>XSECTION</name>
+  <name>XSECTION</name>                      #这部分不确定代表什么...
   <source>*/*@*</source>
   <group-members>
    <frame-color>#f3ff80</frame-color>
@@ -1361,57 +1038,6 @@
   <source>205/0@1</source>
  </properties>
  <properties>
-  <frame-color>#808080</frame-color>
-  <fill-color>#808080</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>false</visible>
-  <transparent>false</transparent>
-  <width/>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>NOTILE_M1 71/0</name>
-  <source>71/0@1</source>
- </properties>
- <properties>
-  <frame-color>#808080</frame-color>
-  <fill-color>#808080</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>false</visible>
-  <transparent>false</transparent>
-  <width/>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>NOTILE_M2 72/0</name>
-  <source>72/0@1</source>
- </properties>
- <properties>
-  <frame-color>#606060</frame-color>
-  <fill-color>#606060</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I3</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>false</visible>
-  <transparent>false</transparent>
-  <width/>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>NOTILE_M3 73/0</name>
-  <source>73/0@1</source>
- </properties>
- <properties>
   <frame-color/>
   <fill-color/>
   <frame-brightness>0</frame-brightness>
@@ -1478,5 +1104,22 @@
    <name>WAFER</name>
    <source>999/0@1</source>
   </group-members>
+ </properties>
+  <properties>
+  <frame-color>rgb(132, 0, 255)</frame-color>
+  <fill-color>	rgb(132, 0, 255)</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I10</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>true</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>MOPT 9999/0</name>
+  <source>9999/0@1</source>
  </properties>
 </layer-properties>
