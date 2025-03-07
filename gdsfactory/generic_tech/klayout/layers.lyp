@@ -17,7 +17,7 @@
   <name>Si_Sub 88/0</name>
   <source>88/0@1</source>
  </properties>
-  <properties>
+ <properties>
   <frame-color>#00ff7f</frame-color>
   <fill-color>#00ff7f</fill-color>
   <frame-brightness>0</frame-brightness>
@@ -34,7 +34,7 @@
   <name>SiO_Bottom_Clad 87/0</name>
   <source>87/0@1</source>
  </properties>
-  <properties>
+ <properties>
   <frame-color>#ff9d9d</frame-color>
   <fill-color>#ff9d9d</fill-color>
   <frame-brightness>0</frame-brightness>
@@ -51,7 +51,7 @@
   <name>WG 200/0</name>
   <source>200/0@1</source>
  </properties>
-  <properties>
+ <properties>
   <frame-color>#4169e1</frame-color>
   <fill-color>#4169e1</fill-color>
   <frame-brightness>0</frame-brightness>
@@ -67,23 +67,6 @@
   <animation>0</animation>
   <name>WGN 201/0</name>
   <source>201/0@1</source>
- </properties>
- <properties>
-  <frame-color>#ff1493</frame-color>
-  <fill-color>#ff1493</fill-color>
-  <frame-brightness>0</frame-brightness>
-  <fill-brightness>0</fill-brightness>
-  <dither-pattern>I2</dither-pattern>
-  <line-style/>
-  <valid>true</valid>
-  <visible>true</visible>
-  <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
-  <xfill>false</xfill>
-  <animation>0</animation>
-  <name>SLAB0 1/1</name>
-  <source>1/1@1</source>
  </properties>
  <properties>
   <frame-color>#ff1493</frame-color>
@@ -188,6 +171,23 @@
   <source>4/0@1</source>
  </properties>
  <properties>
+  <frame-color>#d8bfd8</frame-color>
+  <fill-color>#d8bfd8</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I32</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>Wet_Etch_Heater 5/2</name>
+  <source>5/2@1</source>
+ </properties>
+ <properties>
   <frame-color>#ffff00</frame-color>
   <fill-color>#ffff00</fill-color>
   <frame-brightness>0</frame-brightness>
@@ -205,6 +205,23 @@
   <source>10/0@1</source>
  </properties>
  <properties>
+  <frame-color>#008080</frame-color>
+  <fill-color>#008080</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I32</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>Dry_Etch_Heater_Clad 6/2</name>
+  <source>6/2@1</source>
+ </properties>
+ <properties>
   <frame-color>#cc0000</frame-color>
   <fill-color>#cc0000</fill-color>
   <frame-brightness>0</frame-brightness>
@@ -220,6 +237,23 @@
   <animation>0</animation>
   <name>SiO_Oxide_1 11/0</name>
   <source>11/0@1</source>
+ </properties>
+ <properties>
+  <frame-color>#adff2f</frame-color>
+  <fill-color>#adff2f</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I32</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>Wet_Etch_Electrode 7/2</name>
+  <source>7/2@1</source>
  </properties>
  <properties>
   <frame-color>#b0c4de</frame-color>
@@ -254,6 +288,23 @@
   <animation>0</animation>
   <name>Metal_Ti 13/0</name>
   <source>13/0@1</source>
+ </properties>
+ <properties>
+  <frame-color>#ee1490</frame-color>
+  <fill-color>#ee1490</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I32</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width>1</width>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name>Full_Etch_SiN 8/2</name>
+  <source>8/2@1</source>
  </properties>
  <properties>
   <frame-color>#ff00ff</frame-color>

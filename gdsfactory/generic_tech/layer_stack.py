@@ -1,3 +1,4 @@
+#新的
 from gdsfactory.generic_tech.layer_map import LAYER
 from gdsfactory.technology import LayerLevel, LayerStack, LogicalLayer
 from gdsfactory.technology.processes import (
@@ -11,34 +12,32 @@ from gdsfactory.technology.processes import (
 
 nm = 1e-3
 
-
 class LayerStackParameters:
     """values used by get_layer_stack and get_process."""
     """用于层栈和工艺"""
 
-#后续核对：
+#后续核对(问号表示待定)：
     thickness_substrate: float = 675                   #基板厚度um
     thickness_bottom_clad: float = 15                  #下包层——镀层厚度um
     thickness_wg: float = 220 * nm                     #波导层厚度(core)
     sidewall_angle_wg: float = 0                       #侧壁倾斜角度
     thickness_wgn: float = 220 * nm                    #非线性波导层厚度(core)
     sidewall_angle_wgn: float = 0                      #侧壁倾斜角度
-    thickness_slab_full_etch: float = 0 * nm           #相当于trench层，全刻蚀，刻蚀深度220nm
-    thickness_slab_deep_etch: float = 90 * nm          #深刻蚀，刻蚀深度130nm
-    thickness_slab_shallow_etch: float = 150 * nm      #浅刻蚀，刻蚀深度70nm
+    thickness_slab_deep_etch: float = 90 * nm          #深刻蚀，刻蚀深度130nm，
+    thickness_slab_shallow_etch: float = 150 * nm      #浅刻蚀，刻蚀深度70nm，
     thickness_top_clad: float = 20                     #上包层——镀层厚度um
 
-    thickness_metal_TiN: float = 2000 * nm             #TiN加热层厚度：？
+    thickness_metal_TiN: float = 200 * nm              #TiN加热层厚度
     #zmin_heater: float = 1.1                           #位置?
-    thickness_heater_clad: float = 20                  #加热层TiN_氧化层um
+    thickness_heater_clad: float = 2                   #加热层TiN的氧化层um
     thickness_metal_Ti: float = 1400 * nm              #间隔层厚度
     #zmin_metal_Ti: float = 1.1                         #位置?
     thickness_metal_Al: float = 700 * nm               #电极层Al的厚度：？
     #zmin_metal_Al: float = 2.3                         #位置?
-    thickness_SiN: float = 350 * nm                    #保护层SiN厚度：？
+    thickness_SiN: float = 300 * nm                    #保护层SiN厚度
 
 
-
+#层栈：存储多个 LayerLevel，形成整个芯片的 3D 层叠结构，包含每层属性
 def get_layer_stack(
     thickness_substrate: float = LayerStackParameters.thickness_substrate,
     thickness_bottom_clad: float = LayerStackParameters.thickness_bottom_clad,    
@@ -46,7 +45,6 @@ def get_layer_stack(
     sidewall_angle_wg: float = LayerStackParameters.sidewall_angle_wg,
     thickness_wgn: float = LayerStackParameters.thickness_wgn,
     sidewall_angle_wgn: float = LayerStackParameters.sidewall_angle_wgn,
-    thickness_slab_full_etch: float = LayerStackParameters.thickness_slab_full_etch,
     thickness_slab_deep_etch: float = LayerStackParameters.thickness_slab_deep_etch,
     thickness_slab_shallow_etch: float = LayerStackParameters.thickness_slab_shallow_etch,
     thickness_top_clad: float = LayerStackParameters.thickness_top_clad,  
@@ -63,12 +61,15 @@ def get_layer_stack(
     layer_box: LogicalLayer = LogicalLayer(layer=LAYER.SiO_Bottom_Clad), 
     layer_core: LogicalLayer = LogicalLayer(layer=LAYER.WG), 
     layer_core_wgn: LogicalLayer = LogicalLayer(layer=LAYER.WGN), 
-    layer_slab_full_etch: LogicalLayer = LogicalLayer(layer=LAYER.SLAB0),
     layer_full_etch: LogicalLayer = LogicalLayer(layer=LAYER.Full_Etch), 
     layer_slab_shallow_etch: LogicalLayer = LogicalLayer(layer=LAYER.SLAB150),
     layer_shallow_etch: LogicalLayer = LogicalLayer(layer=LAYER.Shallow_Etch),
     layer_slab_deep_etch: LogicalLayer = LogicalLayer(layer=LAYER.SLAB90),
-    layer_deep_etch: LogicalLayer = LogicalLayer(layer=LAYER.Deep_Etch),
+    layer_deep_etch: LogicalLayer = LogicalLayer(layer=LAYER.Deep_Etch), 
+    layer_wet_etch_heater: LogicalLayer = LogicalLayer(layer=LAYER.Wet_Etch_Heater),
+    layer_dry_etch_heater_clad: LogicalLayer = LogicalLayer(layer=LAYER.Dry_Etch_Heater_Clad),
+    layer_wet_etch_electrode: LogicalLayer = LogicalLayer(layer=LAYER.Wet_Etch_Electrode),
+    layer_full_etch_SiN: LogicalLayer = LogicalLayer(layer=LAYER.Full_Etch_SiN),
     layer_top_clad: LogicalLayer = LogicalLayer(layer=LAYER.SiO_ToP_Clad),
     layer_metal_TiN: LogicalLayer = LogicalLayer(layer=LAYER.Metal_TiN),
     layer_heater_clad: LogicalLayer = LogicalLayer(layer=LAYER.SiO_Oxide_1),
@@ -115,7 +116,7 @@ def get_layer_stack(
         layer_metal_Al: metal Al layer.
         layer_SiN: SiN layer for protection.
     """
-    thickness_full_etch = thickness_wg - thickness_slab_deep_etch         #全刻蚀深度
+    thickness_full_etch = thickness_wg                                    #全刻蚀深度
     thickness_deep_etch = thickness_wg - thickness_slab_deep_etch         #深刻蚀深度
     thickness_shallow_etch = thickness_wg - thickness_slab_shallow_etch   #浅刻蚀深度
 
@@ -123,7 +124,7 @@ def get_layer_stack(
         substrate=LayerLevel(
             layer=layer_Si_Sub,
             thickness=-thickness_substrate-thickness_bottom_clad,
-            zmin=0,                           #box_thickness
+            zmin=-thickness_substrate,                           #box_thickness
             material="si",
             mesh_order=101,                   #网格划分，数字小的优先，用于数值仿真
         ),
@@ -158,8 +159,8 @@ def get_layer_stack(
         ),
         shallow_etch=LayerLevel(
             layer=layer_shallow_etch & layer_core,    
-            thickness=0,
-            zmin=thickness_wgn,
+            thickness=thickness_shallow_etch,
+            zmin=0,
             material="si",
             mesh_order=1,
             derived_layer=LogicalLayer(layer=LAYER.SLAB150),
@@ -168,18 +169,17 @@ def get_layer_stack(
         deep_etch=LayerLevel(
             layer=layer_deep_etch & layer_core, 
             thickness=thickness_deep_etch,
-            zmin=0.0,
+            zmin=0,
             material="si",
             mesh_order=1,
             derived_layer=LogicalLayer(layer=LAYER.SLAB90), 
         ),
         full_etch=LayerLevel(
-            layer=layer_full_etch & layer_core,
+            layer=layer_full_etch,
             thickness=thickness_full_etch,
-            zmin=0.0,
+            zmin=0,
             material="si",
             mesh_order=1,
-            derived_layer=LogicalLayer(layer=LAYER.SLAB0), 
         ),
         slab_shallow_etch=LayerLevel(              #slab150
             layer=layer_slab_shallow_etch,
@@ -191,15 +191,36 @@ def get_layer_stack(
         slab_deep_etch=LayerLevel(                  #slab90
             layer=layer_slab_deep_etch,
             thickness=thickness_slab_deep_etch,
-            zmin=0.0,
+            zmin=0,
             material="si",
             mesh_order=3,
         ),
-        slab_full_etch=LayerLevel(                  
-            layer=layer_slab_full_etch,
-            thickness=thickness_slab_full_etch,
-            zmin=0.0,
-            material="si",
+        wet_etch_heater=LayerLevel(                  
+            layer=layer_wet_etch_heater,
+            thickness=thickness_metal_TiN,
+            zmin=thickness_wg + thickness_top_clad,
+            material="TiN",
+            mesh_order=4,
+        ),
+        dry_etch_heater_clad=LayerLevel(                  
+            layer=layer_dry_etch_heater_clad,
+            thickness=thickness_heater_clad,
+            zmin=thickness_wg + thickness_top_clad,
+            material="sio2",
+            mesh_order=4,
+        ),
+        wet_etch_electrode=LayerLevel(                  
+            layer=layer_wet_etch_electrode,
+            thickness=thickness_metal_Al,
+            zmin=thickness_wg + thickness_top_clad + thickness_metal_TiN + thickness_metal_Ti,
+            material="Aluminum",
+            mesh_order=4,
+        ),
+        full_etch_SiN=LayerLevel(                  
+            layer=layer_full_etch_SiN,
+            thickness=thickness_SiN,
+            zmin=thickness_wg + thickness_top_clad + thickness_metal_TiN + thickness_heater_clad + thickness_metal_Ti,
+            material="SiN",
             mesh_order=4,
         ),
         top_clad=LayerLevel(
@@ -258,12 +279,17 @@ WAFER_STACK = LayerStack(
             "substrate",
             "box",
             "core",
-            "core_wgn",
+            "top_clad",
+            "TiN",
+            "heater_clad",
+            "Ti",
+            "Al",
+            "SiN",
         )
     }
 )
 
-
+#这部分前半段按照工艺流程的顺序来，后面是工艺类型的补充：
 def get_process() -> tuple[ProcessStep, ...]:
     """Returns generic process to generate LayerStack.
 
@@ -272,27 +298,154 @@ def get_process() -> tuple[ProcessStep, ...]:
     based on paper https://www.degruyter.com/document/doi/10.1515/nanoph-2013-0034/html
     """
     return (
-        Etch(
-            name="strip_etch",                #220nm波导层
-            layer=LAYER.WG,
-            layers_or=[LAYER.SiO_WG_2_Slab],
-                                              #mask open = WG + SiO_WG_2_Slab
-            depth=LayerStackParameters.thickness_wg
-            + 0.01,                           # slight overetch for numerics 轻微刻深一点
-            material="silicon",
-            resist_thickness=1.0,             #光刻胶厚度
-            positive_tone=False,              #flase代表负胶
+        Grow(
+            name="deposit_bottom_cladding",
+            layer=LAYER.SiO_Bottom_Clad,
+            thickness=LayerStackParameters.thickness_bottom_clad,
+            material="SiO2_Oxide",
+            type="isotropic",                                       #各向同性？有待商榷
+            #rate= 0.1                                               #nm/s
         ),
-        Etch(
-            name="slab_etch",                 #波导上的刻蚀，slab
-            layer=LAYER.SiO_WG_2_Slab,
-            layers_diff=[LAYER.WG],
-            depth=LayerStackParameters.thickness_wg
-            - LayerStackParameters.thickness_slab_deep_etch,
+        Grow(
+            name="deposit_core_layer",
+            layer=LAYER.WG,
+            thickness=LayerStackParameters.thickness_wg,
             material="silicon",
+            type="isotropic",                                       #各向同性？有待商榷
+            #rate= 0.1                                               #nm/s
+        ),
+        #应分三段退火，时间未知
+        Anneal(
+            name="high_temperature_annealing",
+            time=24,
+            temperature=1200,
+        ), 
+        #掺杂工艺气体(掺杂部分放在后面了)
+        #三层掩膜（Cr\SiO2\光刻胶）
+        #刻蚀掩膜
+        #去光刻胶
+
+        #刻蚀芯层：这部分刻蚀应该分多种情况，目前只选全刻蚀（按照工艺流程图所示）
+        Etch(
+            name="full_etch_corelayer",                             #全刻蚀芯层
+            layer=LAYER.WG,                                         #工艺作用在哪一层
+            layers_and=[LAYER.Full_Etch],                           #（and交集）曝光区域（重合的地方）
+            depth=LayerStackParameters.thickness_wg + 1,            #slight overetch for numerics 轻微刻深一点
+            material="silicon",
+            resist_thickness=1.0,                                   #光刻胶厚度？
+            positive_tone=True,                                     #true代表正胶，曝光区域被刻蚀
+            #rate= 0.1                                               #nm/s
+        ),
+        #去两层硬掩模
+        Grow(
+            name="deposit_top_cladding",
+            layer=LAYER.SiO_ToP_Clad,
+            thickness=LayerStackParameters.thickness_top_clad,
+            material="SiO2_Oxide",
+            type="anisotropic",
+        ),
+        #退火工艺未知
+        Anneal(
+            name="high_temperature_annealing",
+            time=12,
+            temperature=1000,
+        ), 
+        Grow(
+            name="magnetron_sputtering_TiN",                         #磁控溅射，TiN
+            layer=LAYER.Metal_TiN,
+            thickness=LayerStackParameters.thickness_metal_TiN,
+            material="Titanium_Nitride",
+            type="anisotropic",
+        ), 
+        Etch(
+            name="wet_etch_heater", 
+            layer=LAYER.Metal_TiN,
+            layers_and=[LAYER.Wet_Etch_Heater],
+            depth=LayerStackParameters.thickness_metal_TiN,
+            material="Titanium_Nitride",
             resist_thickness=1.0,
         ),
-        #这部分需要添加一些其他的刻蚀，，，
+        Anneal(
+            name="low_temperature_annealing",
+            time=0.5,
+            temperature=500,                                        #低温退火，致密化，温度待定？
+        ), 
+        Grow(
+            name="PE_CVD_sputtering_heater_cladding", 
+            layer=LAYER.SiO_Oxide_1,
+            thickness=LayerStackParameters.thickness_heater_clad,
+            material="SiO2_Oxide",
+            type="anisotropic",
+        ),
+        Etch(
+            name="dry_etch_heater_cladding", 
+            layer=LAYER.SiO_Oxide_1,
+            layers_and=[LAYER.Dry_Etch_Heater_Clad],     
+            depth=LayerStackParameters.thickness_heater_clad,
+            material="SiO2_Oxide",
+            resist_thickness=1.0,
+        ),  
+        Grow(
+            name="sputtering_Ti",                                    #金属化，Ti,种子层
+            layer=LAYER.Metal_Ti,
+            thickness=LayerStackParameters.thickness_metal_Ti,
+            material="Titanium",
+            type="anisotropic",
+        ), 
+        Grow(
+            name="sputtering_Al",                                     #金属化，Al
+            layer=LAYER.Metal_Al,
+            thickness=LayerStackParameters.thickness_metal_Al,
+            material="Aluminum",
+            type="anisotropic",
+        ),    
+        Etch(
+            name="wet_etch_electrode",
+            layer=LAYER.Metal_Al,
+            layers_and=[LAYER.Wet_Etch_Electrode],
+            depth=LayerStackParameters.thickness_metal_Al,
+            material="Aluminum",
+            resist_thickness=1.0,
+        ),
+        Grow(
+            name="PE_CVD_sputtering_SiN",
+            layer=LAYER.SiN,
+            thickness=LayerStackParameters.thickness_SiN,
+            material="Silicon Nitride",
+            type="anisotropic",
+        ),   
+        Etch(
+            name="pad_openning",
+            layer=LAYER.SiN,
+            layers_and=[LAYER.Full_Etch_SiN],
+            depth=LayerStackParameters.thickness_SiN,
+            material="Silicon Nitride",
+            resist_thickness=1.0,
+        ),
+
+
+        #芯层刻蚀补充：
+        Etch(
+            name="deep_etch_corelayer", 
+            layer=LAYER.WG, 
+            layers_and=[LAYER.SLAB150],  
+            depth=LayerStackParameters.thickness_wg - LayerStackParameters.thickness_slab_deep_etch,
+            material="silicon",
+            resist_thickness=1.0,
+            positive_tone=True, 
+            #rate= 0.1                                               #nm/s
+        ),
+        Etch(
+            name="shallow_etch_corelayer", 
+            layer=LAYER.WG, 
+            layers_and=[LAYER.SLAB90],  
+            depth=LayerStackParameters.thickness_wg - LayerStackParameters.thickness_slab_shallow_etch,
+            material="silicon",
+            resist_thickness=1.0,
+            positive_tone=True, 
+            #rate= 0.1                                               #nm/s
+        ),
+
 
         #掺杂部分,物理植入过程。将特定的离子（如磷离子）注入到硅等材料中，以改变材料的电学性质。
         #注意区分轻中重掺杂！！
@@ -303,13 +456,12 @@ def get_process() -> tuple[ProcessStep, ...]:
         ImplantPhysical(
             name="deep_NWD_implant",
             layer=LAYER.NWD,
-            energy=100, #指定离子的能量，单位通常是电子伏特（eV）
-            ion="P", #注入的离子种类，用于N型掺杂
-            #"As",表示注入的是砷离子。
-            #"P",表示注入的是磷离子（Phosphorus）。磷离子通常用于掺杂硅以调节其导电性。
+            energy=100,                                 #指定离子的能量，单位通常是电子伏特（eV）
+            ion="P",                                    #注入的离子种类，用于N型掺杂，"As",表示注入的是砷离子。
+                                                        #"P",表示注入的是磷离子（Phosphorus）。磷离子通常用于掺杂硅以调节其导电性。
             dose=1e12,
-            #dose 参数表示注入的离子数量，单位通常是每单位面积的离子数量。这里设置为 1e12，即每单位面积注入 10的12次方个离子。
-            resist_thickness=1.0,#光刻胶的厚度
+                                                        #dose 参数表示注入的离子数量，单位通常是每单位面积的离子数量。这里设置为 1e12，即每单位面积注入 10的12次方个离子。
+            resist_thickness=1.0,
         ),
         ImplantPhysical(
             name="shallow_NWD_implant",
@@ -323,9 +475,8 @@ def get_process() -> tuple[ProcessStep, ...]:
             name="deep_PWD_implant",
             layer=LAYER.PWD,
             energy=50,
-            ion="B", #用于P型掺杂
-            #"B",表示硼离子
-            #"Al",铝离子也可以用于P型掺杂
+            ion="B",                                     #用于P型掺杂，"B",表示硼离子
+                                                         #"Al",铝离子也可以用于P型掺杂
             dose=1e12,
             resist_thickness=1.0,
         ),
@@ -337,6 +488,7 @@ def get_process() -> tuple[ProcessStep, ...]:
             dose=1e12,
             resist_thickness=1.0,
         ),
+
         #PN结，中掺
         ImplantPhysical(
             name="PD1_implant",
@@ -370,6 +522,7 @@ def get_process() -> tuple[ProcessStep, ...]:
             dose=1e15,
             resist_thickness=1.0,
         ),
+
         #欧姆接触，重掺
             ImplantPhysical(
             name="PD_Ohmic_implant",
@@ -387,54 +540,10 @@ def get_process() -> tuple[ProcessStep, ...]:
             dose=1e15,
             resist_thickness=1.0,
         ),
-        # "Temperatures of ~1000C for not more than a few seconds"
-        # Adjust to your process
-        # https://en.wikipedia.org/wiki/Rapid_thermal_processing
 
-        Anneal(
-            name="dopant_activation",
-            time=5,
-            temperature=1000,
-        ), 
-        # Etch(
-        #     name="viac_etch",
-        #     layer=LAYER.VIAC,
-        #     depth=LayerStackParameters.zmin_metal1
-        #     - LayerStackParameters.thickness_slab_deep_etch
-        #     + 0.1,
-        #     material="Aluminum",
-        #     type="anisotropic",
-        #     resist_thickness=1.0,
-        #     positive_tone=False,
-        # ),
-        Grow(
-            name="deposit_cladding",
-            layer=None,
-            thickness=LayerStackParameters.thickness_top_clad
-            + LayerStackParameters.thickness_slab_deep_etch,
-            material="SiO2_Oxide",
-            type="anisotropic",
-        ),
-        Grow(
-            name="viac_metallization2", #金属化，Ti
-            layer=None,
-            thickness=LayerStackParameters.zmin_metal_Ti
-            - LayerStackParameters.thickness_slab_deep_etch,
-            material="Titanium",
-            type="anisotropic",
-        ),  
-        Grow(
-            name="viac_metallization1", #金属化，Al
-            layer=None,
-            thickness=LayerStackParameters.zmin_metal_Al
-            - LayerStackParameters.thickness_slab_deep_etch,
-            material="Aluminum",
-            type="anisotropic",
-        ),    
         Planarize(
             name="planarization",
-            height=LayerStackParameters.thickness_top_clad
-            - LayerStackParameters.thickness_slab_deep_etch,
+            height=LayerStackParameters.thickness_top_clad - LayerStackParameters.thickness_slab_deep_etch,
         ),
     )
 

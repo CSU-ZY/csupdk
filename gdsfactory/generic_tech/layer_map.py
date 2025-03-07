@@ -1,3 +1,4 @@
+#新：
 import gdsfactory as gf
 
 Layer = tuple[int, int]
@@ -14,31 +15,37 @@ class LAYER(gf.LayerEnum):
     layout = gf.constant(gf.kcl.layout)
 
 
-#关于工艺流程的layer，如下：
+#关于工艺流程的层，如下：
     Si_Sub: Layer = (88, 0)
     SiO_Bottom_Clad: Layer = (87,0)
 
     WG: Layer = (200,0)             #波导waveguide，材料是Si
     WGN: Layer = (201, 0)           #非线性波导Waveguide Nonlinear 
+    
+    # #备选部分
+    # Slab_Full_Etch: Layer = (1,1)     #全刻蚀部分
+    # Slab_Deep_Etch: Layer = (1,2)     #深刻蚀部分
+    # Slab_Shallow_Etch: Layer = (1,3)  #浅刻蚀部分
 
-    #备用部分：
-    # SiO_WG_1_Clad: Layer = (1,1)  #全刻蚀部分
-    # SiO_WG_2_Clad: Layer = (1,2)  #深刻蚀部分
-    # SiO_WG_3_Clad: Layer = (1,3)  #浅刻蚀部分
-
-    SLAB0: Layer = (1,1)            #全刻蚀完剩余部分,slab0
+    # #需要考虑这部分是否只留一个Clad，又称Core、芯层、镀层
     Full_Etch: Layer = (1,2)        #全刻蚀部分full
     SLAB90: Layer = (2,1)           #深刻蚀完剩余部分,slab90
     Deep_Etch: Layer = (2,2)        #深刻蚀部分deep
     SLAB150: Layer = (3,1)          #浅刻蚀完剩余部分,slab150
     Shallow_Etch: Layer = (3,2)     #浅刻蚀部分shallow
-    
+
+    Wet_Etch_Heater: Layer = (5,2) 
+    Dry_Etch_Heater_Clad: Layer = (6,2) 
+    Wet_Etch_Electrode: Layer = (7,2) 
+    Full_Etch_SiN: Layer = (8,2) 
+
     SiO_ToP_Clad: Layer = (4,0)
     Metal_TiN: Layer = (10,0)       #Heater!
     SiO_Oxide_1: Layer = (11,0)
     Metal_Ti: Layer = (13,0)        #Metal1
     Metal_Al: Layer = (12,0)        #Metal2
     SiN: Layer = (14,0)
+
 
     #Dopping：
     NWD: Layer = (30,0)
@@ -49,6 +56,7 @@ class LAYER(gf.LayerEnum):
     PD2: Layer = (35,0)
     ND_Ohmic: Layer = (36,0)
     PD_Ohmic: Layer = (37,0)
+
     #中间还可以任意添加层
 
     #注释部分：
@@ -57,6 +65,8 @@ class LAYER(gf.LayerEnum):
     TXT: Layer = (97,0)
     DA: Layer = (98,0)
     DecRec: Layer = (99,0)
+
+
 
     #延续前一部分的（用于generic_tech.__init__部分）：
     TE: Layer = (203, 0)
@@ -72,7 +82,7 @@ class LAYER(gf.LayerEnum):
     #用于（components.die_with_pads）：
     FLOORPLAN: Layer = (64, 0)
 
-    MTOP: Layer = (9999, 0)  #?未知，用于器件
+    MTOP: Layer = (9999, 0)  #?
 
 
 gf.kcl.layers = LAYER

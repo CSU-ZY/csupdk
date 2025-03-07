@@ -26,12 +26,6 @@ LayerViews:
     transparent: true
     width: 1
     color: "#4169E1"
-  SLAB0:
-    layer: [1, 1]
-    layer_in_name: true
-    hatch_pattern: dotted
-    width: 1
-    color: "#FF1493"
   Full_Etch:
     layer: [1, 2]
     layer_in_name: true
@@ -74,6 +68,12 @@ LayerViews:
     fill_color: "#F08080"
     hatch_pattern: coarsely dotted
     width: 1
+  Wet_Etch_Heater:
+    layer: [5, 2]
+    layer_in_name: true
+    hatch_pattern: vertical dense
+    width: 1
+    color: "#D8BFD8"
   Metal_TiN:
     layer: [10, 0]
     layer_in_name: true
@@ -82,12 +82,24 @@ LayerViews:
     hatch_pattern: solid
     transparent: true
     width: 1
+  Dry_Etch_Heater_Clad:
+    layer: [6, 2]
+    layer_in_name: true
+    hatch_pattern: vertical dense
+    width: 1
+    color: "#008080"
   SiO_Oxide_1:
     layer: [11, 0]
     layer_in_name: true
     frame_color: "#cc0000"
     fill_color: "#cc0000"
     hatch_pattern: left-hatched
+  Wet_Etch_Electrode:
+    layer: [7, 2]
+    layer_in_name: true
+    hatch_pattern: vertical dense
+    width: 1
+    color: "#ADFF2F"
   Metal_Al:
     layer: [12, 0]
     layer_in_name: true
@@ -102,6 +114,12 @@ LayerViews:
     fill_color: "#E1FFFF"
     hatch_pattern: solid
     width: 1
+  Full_Etch_SiN:
+    layer: [8, 2]
+    layer_in_name: true
+    hatch_pattern: vertical dense
+    width: 1
+    color: "#EE1490"
   SiN:
     layer: [20, 0]
     layer_in_name: true
@@ -404,4 +422,4 @@ LayerViews:
     transparent: true
     width: 1
     color: "rgb(132, 0, 255)"
-         
+     
