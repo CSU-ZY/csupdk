@@ -11,7 +11,7 @@ class ProcessStep:
 
 
 @dataclass(kw_only=True)
-class Lithography(ProcessStep):
+class Lithography(ProcessStep):#光刻的掩膜
     """Simulates lithography by generating a logical on-wafer mask from one or many layers to be used in processing operations.
 
     (1) First, a mask is created from the layer arguments:
@@ -26,7 +26,7 @@ class Lithography(ProcessStep):
         0       1        2         3          0       1        2         3
 
 
-    if argument_layers is provided to layers_or, for those layers:
+    if argument_layers is provided to layers_or, for those layers:(or并集)
 
                layer                                 mask opening
         <---------------->                   <--------------------------->
@@ -38,7 +38,7 @@ class Lithography(ProcessStep):
                     layers_or
 
 
-    if argument_layers is provided to layers_and, for those layers:
+    if argument_layers is provided to layers_and, for those layers:(and&交集)
 
                layer                                 mask opening
         <---------------->                            <--------->
@@ -49,7 +49,7 @@ class Lithography(ProcessStep):
                 <------------------>
                       layers_and
 
-    if argument_layers is provided to layers_diff, for those layers:
+    if argument_layers is provided to layers_diff, for those layers:(diff减)
 
                layer                                 mask opening
         <---------------->                    <------->
@@ -60,7 +60,7 @@ class Lithography(ProcessStep):
                 <------------------>
                       layers_diff
 
-    if argument_layers is provided to layers_xor, for those layers:
+    if argument_layers is provided to layers_xor, for those layers:(xor两个独有)
 
               layer                                  mask opening
         <---------------->                   <-------->        <--------->
@@ -118,7 +118,7 @@ class Lithography(ProcessStep):
 
 
 @dataclass(kw_only=True)
-class Grow(Lithography):
+class Grow(Lithography):#生长或沉积（由type来决定）
     """Simulates masking + addition of material + liftoff.
 
     wafer mask opened           wafer mask opened
@@ -142,7 +142,7 @@ class Grow(Lithography):
 
 
 @dataclass(kw_only=True)
-class Etch(Lithography):
+class Etch(Lithography):#刻蚀
     """Simulates masking + removal of material + strip.
 
     wafer mask opened          wafer mask opened
@@ -156,7 +156,7 @@ class Etch(Lithography):
     Args:
         material (str): material tag to etch into
         thickness (float): thickness to remove [nm]
-        type (str): of etch (isotropic, anisotropic, etc.)
+        type (str): of etch (isotropic各向同性, anisotropic各向异性, etc.)
         rate (float): of removal [nm/s]
 
     """
@@ -168,7 +168,7 @@ class Etch(Lithography):
 
 
 @dataclass(kw_only=True)
-class ImplantPhysical(Lithography):
+class ImplantPhysical(Lithography):#物理离子注入
     """Simulates masking + physical ion implantation + strip.
 
     wafer mask opened          wafer mask opened
@@ -196,7 +196,7 @@ class ImplantPhysical(Lithography):
 
 
 @dataclass(kw_only=True)
-class ImplantGaussian(Lithography):
+class ImplantGaussian(Lithography):#高斯分布注入
     """Simulates masking + physical ion implantation + strip.
 
     wafer mask opened          wafer mask opened
@@ -223,7 +223,7 @@ class ImplantGaussian(Lithography):
 
 
 @dataclass(kw_only=True)
-class DopingConstant(Lithography):
+class DopingConstant(Lithography):#恒定掺杂（一定范围内掺杂）
     """Constant doping for simplified processes.
 
     wafer mask opened          wafer mask opened
@@ -253,7 +253,7 @@ class Anneal(ProcessStep):
     """Simulates thermal diffusion of impurities and healing of defects.
 
     Args:
-        time (float)
+        time (float) [h]
         temperature (float): temperature
 
     TODO (long term): heating/cooling time profiles
@@ -264,7 +264,7 @@ class Anneal(ProcessStep):
 
 
 @dataclass(kw_only=True)
-class Planarize(ProcessStep):
+class Planarize(ProcessStep):#平坦化（机械抛光）
     """Simulates chip planarization, "clipping" the structure above some height. Does not use masking.
 
          __

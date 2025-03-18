@@ -16,25 +16,29 @@ class LayerStackParameters:
     """values used by get_layer_stack and get_process."""
     """用于层栈和工艺"""
 
-#后续核对(问号表示待定)：
-    thickness_substrate: float = 675                   #基板厚度um
+    #0.45%,Si衬底。后续核对(问号表示待定)：
+    thickness_substrate: float = 625                   #基板厚度um
     thickness_bottom_clad: float = 15                  #下包层——镀层厚度um
-    thickness_wg: float = 220 * nm                     #波导层厚度(core)
+    thickness_wg: float = 6.5                          #波导层厚度(core)
     sidewall_angle_wg: float = 0                       #侧壁倾斜角度
-    thickness_wgn: float = 220 * nm                    #非线性波导层厚度(core)
+    thickness_wgn: float = 6.5                         #非线性波导层厚度(core)？这个目前不需要
     sidewall_angle_wgn: float = 0                      #侧壁倾斜角度
-    thickness_slab_deep_etch: float = 90 * nm          #深刻蚀，刻蚀深度130nm，
-    thickness_slab_shallow_etch: float = 150 * nm      #浅刻蚀，刻蚀深度70nm，
+    thickness_slab_deep_etch: float = 90 * nm          #深刻蚀，刻蚀深度130nm？
+    thickness_slab_shallow_etch: float = 150 * nm      #浅刻蚀，刻蚀深度70nm？
     thickness_top_clad: float = 20                     #上包层——镀层厚度um
 
-    thickness_metal_TiN: float = 200 * nm              #TiN加热层厚度
-    #zmin_heater: float = 1.1                           #位置?
+    thickness_full_etch = thickness_wg + 1                                #全刻蚀深度
+    thickness_deep_etch = thickness_wg - thickness_slab_deep_etch         #深刻蚀深度？
+    thickness_shallow_etch = thickness_wg - thickness_slab_shallow_etch   #浅刻蚀深度？
+
+    thickness_metal_TiN: float = round(200 * nm, 10)   #TiN加热层厚度
+    #zmin_heater: float = 1.1                          #位置?
     thickness_heater_clad: float = 2                   #加热层TiN的氧化层um
-    thickness_metal_Ti: float = 1400 * nm              #间隔层厚度
-    #zmin_metal_Ti: float = 1.1                         #位置?
-    thickness_metal_Al: float = 700 * nm               #电极层Al的厚度：？
-    #zmin_metal_Al: float = 2.3                         #位置?
-    thickness_SiN: float = 300 * nm                    #保护层SiN厚度
+    thickness_metal_Ti: float = round(1400 * nm, 10)   #间隔层厚度
+    #zmin_metal_Ti: float = 1.1                        #位置?
+    thickness_metal_Al: float = round(700 * nm, 10)    #电极层Al的厚度：？
+    #zmin_metal_Al: float = 2.3                        #位置?
+    thickness_SiN: float = round(300 * nm, 10)         #保护层SiN厚度
 
 
 #层栈：存储多个 LayerLevel，形成整个芯片的 3D 层叠结构，包含每层属性
@@ -56,6 +60,10 @@ def get_layer_stack(
     #zmin_metal_Al: float = LayerStackParameters.zmin_metal_Al,
     thickness_metal_Al: float = LayerStackParameters.thickness_metal_Al,
     thickness_SiN: float = LayerStackParameters.thickness_SiN,
+
+    thickness_full_etch: float = LayerStackParameters.thickness_full_etch,
+    thickness_deep_etch: float = LayerStackParameters.thickness_deep_etch,
+    thickness_shallow_etch: float = LayerStackParameters.thickness_shallow_etch,
 
     layer_Si_Sub: LogicalLayer = LogicalLayer(layer=LAYER.Si_Sub), 
     layer_box: LogicalLayer = LogicalLayer(layer=LAYER.SiO_Bottom_Clad), 
@@ -116,16 +124,13 @@ def get_layer_stack(
         layer_metal_Al: metal Al layer.
         layer_SiN: SiN layer for protection.
     """
-    thickness_full_etch = thickness_wg                                    #全刻蚀深度
-    thickness_deep_etch = thickness_wg - thickness_slab_deep_etch         #深刻蚀深度
-    thickness_shallow_etch = thickness_wg - thickness_slab_shallow_etch   #浅刻蚀深度
-
+    
     layers = dict(
         substrate=LayerLevel(
             layer=layer_Si_Sub,
-            thickness=-thickness_substrate-thickness_bottom_clad,
-            zmin=-thickness_substrate,                           #box_thickness
-            material="si",
+            thickness=thickness_substrate,
+            zmin=-thickness_substrate-thickness_bottom_clad,      
+            material="silicon",
             mesh_order=101,                   #网格划分，数字小的优先，用于数值仿真
         ),
         box=LayerLevel(
@@ -134,24 +139,43 @@ def get_layer_stack(
             zmin=-thickness_bottom_clad,                          
             material="sio2",
             mesh_order=9,
+            info={
+                "refractive_index": 1.444,
+                "uniformity_of_index": 0.0002,
+                "uniformity_of_thickness": 1.5,
+                "color": "blue",
+                "simulation_settings": {
+                    "wavelength": 1.55,  # 单位 um
+                    "solver": "FDTD"
+                }
+            }
         ),        
         core=LayerLevel(
             layer=layer_core - layer_full_etch - layer_deep_etch - layer_shallow_etch,
             #这层是由多个 GDS 层组合而成的物理派生层，通过计算得出最终层。第一层是核心层。
             thickness=thickness_wg,
             zmin=0,
-            material="si",
+            material="silicon",
             mesh_order=2,
             sidewall_angle=sidewall_angle_wg,
             width_to_z=0.5,
-            derived_layer=LogicalLayer(layer=LAYER.WG),
-            #最终计算出来的层，映射到GDS的WG层
+            derived_layer=LogicalLayer(layer=LAYER.WG),            #最终计算出来的层，映射到GDS的WG层
+            info={
+                "refractive_index": 1.4504,
+                "uniformity_of_index": 0.0002,
+                "uniformity_of_thickness": 0.3,
+                "color": "blue",
+                "simulation_settings": {
+                    "wavelength": 1.55,  # 单位 um
+                    "solver": "FDTD"
+                }
+        }
         ),
         core_wgn=LayerLevel(
             layer=layer_core_wgn - layer_full_etch - layer_deep_etch - layer_shallow_etch,
             thickness=thickness_wgn,
             zmin=0,
-            material="si",
+            material="silicon",
             mesh_order=2,
             sidewall_angle=sidewall_angle_wgn,
             width_to_z=0.5,
@@ -161,7 +185,7 @@ def get_layer_stack(
             layer=layer_shallow_etch & layer_core,    
             thickness=thickness_shallow_etch,
             zmin=0,
-            material="si",
+            material="silicon",
             mesh_order=1,
             derived_layer=LogicalLayer(layer=LAYER.SLAB150),
             #这部分，意思是core和shallow etch的重叠部分，最后由SLAB150从z=0长出来Si,相当于也是芯层。
@@ -170,7 +194,7 @@ def get_layer_stack(
             layer=layer_deep_etch & layer_core, 
             thickness=thickness_deep_etch,
             zmin=0,
-            material="si",
+            material="silicon",
             mesh_order=1,
             derived_layer=LogicalLayer(layer=LAYER.SLAB90), 
         ),
@@ -178,21 +202,21 @@ def get_layer_stack(
             layer=layer_full_etch,
             thickness=thickness_full_etch,
             zmin=0,
-            material="si",
+            material="silicon",
             mesh_order=1,
         ),
         slab_shallow_etch=LayerLevel(              #slab150
             layer=layer_slab_shallow_etch,
             thickness=thickness_shallow_etch,
             zmin=0,
-            material="si",
+            material="silicon",
             mesh_order=2,
         ),
         slab_deep_etch=LayerLevel(                  #slab90
             layer=layer_slab_deep_etch,
             thickness=thickness_slab_deep_etch,
             zmin=0,
-            material="si",
+            material="silicon",
             mesh_order=3,
         ),
         wet_etch_heater=LayerLevel(                  
@@ -225,10 +249,18 @@ def get_layer_stack(
         ),
         top_clad=LayerLevel(
             layer=layer_top_clad,                    
-            zmin=0,                                       #？这部分还有待考量，分不同情况，看怎么安排
+            zmin=0,                                        #？这部分还有待考量，分不同情况，看怎么安排
             material="sio2",
             thickness=thickness_top_clad,                  #+ thickness_wg？#同上
             mesh_order=10,
+            info={
+                "refractive_index": 1.444,
+                "color": "blue",
+                "simulation_settings": {
+                    "wavelength": 1.55,                    # 单位 um
+                    "solver": "FDTD"
+                }
+            }
         ),
         TiN=LayerLevel(                        
             layer=layer_metal_TiN,
@@ -281,6 +313,7 @@ WAFER_STACK = LayerStack(
             "core",
             "top_clad",
             "TiN",
+            "wet_etch_heater",
             "heater_clad",
             "Ti",
             "Al",
@@ -548,12 +581,12 @@ def get_process() -> tuple[ProcessStep, ...]:
     )
 
 if __name__ == "__main__":
-    # ls = get_layer_stack(substrate_thickness=50.0)
-    # ls = get_layer_stack()
-    # script = ls.get_klayout_3d_script()
-    # print(script)
-    # print(ls.get_layer_to_material())
-    # print(ls.get_layer_to_thickness())
+    ls = get_layer_stack(thickness_substrate=50.0)
+    ls = get_layer_stack()
+    script = ls.get_klayout_3d_script()
+    print(script)
+    print(ls.get_layer_to_material())
+    print(ls.get_layer_to_thickness())
 
     for layername, layer in WAFER_STACK.layers.items():
-        print(layername, layer.zmin, layer.thickness)
+        print(layername, layer.thickness,layer.material,layer.info.get("refractive_index", "none"))

@@ -87,6 +87,7 @@ class AbstractLayer(BaseModel):
         """
         return DerivedLayer(layer1=self, layer2=other, operation="not")
 
+    #等比例扩大，可以指定方向：
     def sized(
         self,
         xoffset: int | tuple[int, ...],
@@ -314,9 +315,13 @@ class LayerLevel(BaseModel):
             I.e. [[z1, z2, ..., zN], [bias1, bias2, ..., biasN]]\
                     Defaults no buffering [[0, 1], [0, 0]].
                     NOTE: A dict might be more expressive.
-        mesh_order: lower mesh order (e.g. 1) will have priority over higher mesh order (e.g. 2) in the regions where materials overlap.
-        material: used in the klayout script
+        mesh_order: lower mesh order (e.g. 1) will have priority over higher mesh order (e.g. 2) in the regions where materials overlap.(材料重叠区域，数字小的优先划分网格，用于数值仿真。一般光波导区域的数字小。)
+        material: used in the klayout script.
         info: all other rendering and simulation metadata should go here.
+        #补充可能存在的：
+        refractive_index:材料折射率。
+        uniformity_of_index:折射率均匀性，表示某个材料或结构的折射率在不同位置的变化程度。高均匀性折射率几乎不变，光传播更稳定。
+        uniformity_of_thickness:材料厚度的均匀性（制造误差），即某一层材料在制造过程中厚度的变化范围或误差。在光子芯片制造中，材料的厚度变化会影响光波导的有效折射率，从而影响器件性能。
     """
 
     # ID
@@ -349,6 +354,11 @@ class LayerLevel(BaseModel):
 
     # Other
     info: dict[str, Any] = Field(default_factory=dict)
+
+    # 添加的参数，可以直接加到info中
+    # refractive_index: float | None = None
+    # uniformity_of_index: float | None = None
+    # uniformity_of_thickness: float | None = None
 
     @field_validator("layer")
     @classmethod
@@ -687,26 +697,27 @@ def get_component_with_derived_layers(
     component_derived.add_ports(component.ports)
     return component_derived
 
-
+#修改后：
 if __name__ == "__main__":
     # For now, make regular layers trivial DerivedLayers
     # This might be automatable during LayerStack instantiation, or we could modify the Layer object in LayerMap too
+ 
+    layer1 = LogicalLayer(layer=(200, 0))                                               #原尺寸，WG
+    layer2 = LogicalLayer(layer=(1, 2))                                                 #原尺寸，Full Etch
+    layer1_sized = LogicalLayer(layer=(200, 0)).sized(10000)                            #整体扩大，WG 
+    layer1_sized_asymmetric = LogicalLayer(layer=(200, 0)).sized(0, 50000)              #X不变，Y扩大，WG
 
-    layer1 = LogicalLayer(layer=(1, 0))
-    layer2 = LogicalLayer(layer=(2, 0))
-    layer1_sized = LogicalLayer(layer=(1, 0)).sized(10000)
-    layer1_sized_asymmetric = LogicalLayer(layer=(1, 0)).sized(0, 50000)
-
-    layer3 = LogicalLayer(layer=(3, 0))
-    layer3_sequence = LogicalLayer(layer=(3, 0)).sized(2000, 2000).sized(-1000, -1000)
-    layer3_sequence_list = LogicalLayer(layer=(3, 0)).sized((2000, 2000))
-    layer3_sequence_lists = LogicalLayer(layer=(3, 0)).sized((0, 0), (5000, 1000))
+    layer3 = LogicalLayer(layer=(10, 0))                                                #原尺寸，TiN
+    layer3_sequence = LogicalLayer(layer=(10, 0)).sized(2000, 2000).sized(-1000, -1000) #先增2后减1，TIN
+    layer3_sequence_list = LogicalLayer(layer=(10, 0)).sized((2000, 2000))              #X2Y2，TiN
+    layer3_sequence_lists = LogicalLayer(layer=(10, 0)).sized((0, 0), (5000, 1000))     #X0Y5,XOY1，TiN
 
     ls = LayerStack(
         layers={
             "layerlevel_layer1": LayerLevel(layer=layer1, thickness=10, zmin=0),
             "layerlevel_layer1_sized": LayerLevel(
-                layer=layer1_sized, thickness=10, zmin=0
+                layer=layer1_sized, thickness=10, zmin=0,
+                derived_layer=LogicalLayer(layer=(11, 0)),
             ),
             "layerlevel_layer1_asymmetric": LayerLevel(
                 layer=layer1_sized_asymmetric, thickness=10, zmin=0
@@ -725,25 +736,33 @@ if __name__ == "__main__":
                 layer=layer3_sequence_list,
                 thickness=10,
                 zmin=0,
-                derived_layer=LogicalLayer(layer=(5, 0)),
+                derived_layer=LogicalLayer(layer=(203, 0)),
             ),
             "layer3_sequence_lists": LayerLevel(
                 layer=layer3_sequence_lists,
                 thickness=10,
                 zmin=0,
-                derived_layer=LogicalLayer(layer=(6, 0)),
+                derived_layer=LogicalLayer(layer=(204, 0)),
+            ),
+            "layer2": LayerLevel(
+                layer=layer2,
+                thickness=10,
+                zmin=0,
+                derived_layer=LogicalLayer(layer=(20, 0)),
             ),
         }
     )
 
-    # Test with simple component
+    # Test with simple component（？）
     import gdsfactory as gf
 
     c = gf.Component()
 
-    rect1 = c << gf.components.rectangle(size=(10, 10), layer=(1, 0))
-    rect2 = c << gf.components.rectangle(size=(10, 10), layer=(3, 0))
+    rect1 = c << gf.components.rectangle(size=(10, 10), layer=(200, 0))
+    rect2 = c << gf.components.rectangle(size=(10, 10), layer=(10, 0))
+    # rect3 = c << gf.components.rectangle(size=(10, 10), layer=(1, 2))
     rect2.dmove((30, 30))
+    # rect3.dmove((30, -30))
     # c.show()
 
     # import gdsfactory as gf
@@ -755,8 +774,88 @@ if __name__ == "__main__":
     # rect2.dmove((5, 5))
     # c.show()
 
-    c = get_component_with_derived_layers(c, ls)
+    c = get_component_with_derived_layers(c, ls) # 只把有派生层的显示出来，需要有器件，不然有派生层也无法显示
     c.show()
 
     # s = ls.get_klayout_3d_script()
     # print(s)
+
+
+
+
+##原版
+# if __name__ == "__main__":
+#     # For now, make regular layers trivial DerivedLayers
+#     # This might be automatable during LayerStack instantiation, or we could modify the Layer object in LayerMap too
+
+#     layer1 = LogicalLayer(layer=(1, 0))
+#     layer2 = LogicalLayer(layer=(2, 0))
+#     layer1_sized = LogicalLayer(layer=(1, 0)).sized(10000)
+#     layer1_sized_asymmetric = LogicalLayer(layer=(1, 0)).sized(0, 50000)
+
+#     layer3 = LogicalLayer(layer=(3, 0))
+#     layer3_sequence = LogicalLayer(layer=(3, 0)).sized(2000, 2000).sized(-1000, -1000)
+#     layer3_sequence_list = LogicalLayer(layer=(3, 0)).sized((2000, 2000))
+#     layer3_sequence_lists = LogicalLayer(layer=(3, 0)).sized((0, 0), (5000, 1000))
+
+#     ls = LayerStack(
+#         layers={
+#             "layerlevel_layer1": LayerLevel(layer=layer1, thickness=10, zmin=0),
+#             "layerlevel_layer1_sized": LayerLevel(
+#                 layer=layer1_sized, thickness=10, zmin=0
+#             ),
+#             "layerlevel_layer1_asymmetric": LayerLevel(
+#                 layer=layer1_sized_asymmetric, thickness=10, zmin=0
+#             ),
+#             "layerlevel_layer1_to_layer2_derived": LayerLevel(
+#                 layer=layer1_sized, thickness=10, zmin=0, derived_layer=layer2
+#             ),
+#             "layerlevel_layer3": LayerLevel(layer=layer3, thickness=10, zmin=0),
+#             "layer3_sequence": LayerLevel(
+#                 layer=layer3_sequence,
+#                 thickness=10,
+#                 zmin=0,
+#                 derived_layer=LogicalLayer(layer=(4, 0)),
+#             ),
+#             "layer3_sequence_list": LayerLevel(
+#                 layer=layer3_sequence_list,
+#                 thickness=10,
+#                 zmin=0,
+#                 derived_layer=LogicalLayer(layer=(5, 0)),
+#             ),
+#             "layer3_sequence_lists": LayerLevel(
+#                 layer=layer3_sequence_lists,
+#                 thickness=10,
+#                 zmin=0,
+#                 derived_layer=LogicalLayer(layer=(6, 0)),
+#             ),
+#         }
+#     )
+
+#     # Test with simple component（？）
+#     import gdsfactory as gf
+
+#     c = gf.Component()
+
+#     rect1 = c << gf.components.rectangle(size=(10, 10), layer=(1, 0))
+#     rect2 = c << gf.components.rectangle(size=(10, 10), layer=(3, 0))
+#     rect2.dmove((30, 30))
+#     # c.show()
+
+#     # import gdsfactory as gf
+
+#     # c = gf.Component()
+
+#     # rect1 = c << gf.components.rectangle(size=(10, 10), layer=(1, 0))
+#     # rect2 = c << gf.components.rectangle(size=(10, 10), layer=(2, 0))
+#     # rect2.dmove((5, 5))
+#     # c.show()
+
+#     c = get_component_with_derived_layers(c, ls)
+#     c.show()
+
+#     # s = ls.get_klayout_3d_script()
+#     # print(s)
+
+
+
