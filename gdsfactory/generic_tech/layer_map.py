@@ -42,9 +42,9 @@ class LAYER(gf.LayerEnum):
     SiO_ToP_Clad: Layer = (4,0)
     Metal_TiN: Layer = (10,0)       #Heater!
     SiO_Oxide_1: Layer = (11,0)
-    Metal_Ti: Layer = (13,0)        #Metal1
-    Metal_Al: Layer = (12,0)        #Metal2
-    SiN: Layer = (14,0)
+    Metal_Ti: Layer = (12,0)        #Metal1
+    Metal_Al: Layer = (13,0)        #Metal2
+    SiN: Layer = (20,0)
 
 
     #Dopping：
@@ -90,3 +90,6 @@ gf.kcl.layers = LAYER
 
 if __name__ == "__main__":
     LAYER.my_layer = (1, 2)
+
+
+print(dir(LAYER))  # 列出 LAYER 的所有属性
