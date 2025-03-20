@@ -5,6 +5,7 @@ from gdsfactory.component import Component
 from gdsfactory.components.coupler_straight import coupler_straight
 from gdsfactory.components.coupler_symmetric import coupler_symmetric
 from gdsfactory.typings import CrossSectionSpec, Delta
+from gdsfactory.typings import Ints, LayerSpec, LayerSpecs, Size
 
 
 @gf.cell
@@ -13,7 +14,7 @@ def coupler(
     length: float = 20.0,
     dy: Delta = 4.0,
     dx: Delta = 10.0,
-    cross_section: CrossSectionSpec = "strip",
+    cross_section: CrossSectionSpec = "strip", #这里表示横截面类型，实际上还包含layer:LayerSpec="WG",width,radius.radius_min
     allow_min_radius_violation: bool = False,
 ) -> Component:
     r"""Symmetric coupler.
@@ -67,6 +68,8 @@ def coupler(
 
 
 if __name__ == "__main__":
-    c = coupler(gap=0.2, dy=100)
+    c = coupler()
+    #c = coupler(gap=0.2, dy=100) 
     n = c.get_netlist()
     c.show()
+    

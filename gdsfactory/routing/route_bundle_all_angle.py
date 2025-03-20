@@ -104,5 +104,5 @@ if __name__ == "__main__":
         mmi1.ports.filter(orientation=0),
         [mmi2.ports["o2"], mmi2.ports["o1"]],
     )
-
     c.show()
+    #print(f"{c.references}")

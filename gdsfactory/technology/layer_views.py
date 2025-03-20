@@ -1206,10 +1206,15 @@ if __name__ == "__main__":
     from gdsfactory.generic_tech import get_generic_pdk
 
     PDK = get_generic_pdk()
-    LAYER_VIEWS = PDK.layer_views
-    # LAYER_VIEWS.to_yaml(PATH.repo / "extra" / "layers.yml")
-    c = LAYER_VIEWS.preview_layerset()
-    c.show()
+    LAYER_VIEWS = PDK.layer_views                         #从之前保存的 YAML 文件中加载层视图
+    #LAYER_VIEWS.to_yaml(PATH.repo / "extra" / "layers.yml")
+    #LAYER_VIEWS.to_lyp("E:/study/klayout_lyp")           #取消注释可用，将layer_views.yaml转化成了lyp
+    #LAYER_VIEWS.to_yaml("E:/study/extra/layers.yml")     #取消注释可用，生成的文件与layer_views.yaml相同
+    LAYER_VIEWS = LayerViews(filepath="D:/ProgramData/anaconda3/Lib/site-packages/gdsfactory/generic_tech/layer_views.yaml")
+    #从之前保存的 YAML 文件中加载层视图
+    c = LAYER_VIEWS.preview_layerset()                    #生成每层的预示图
+    c.show()  
+    #print(LAYER_VIEWS.layer_views["Doping"])             #打印特定层的信息
 
     # LAYER_VIEWS = LayerViews(filepath=PATH.klayout_yaml)
     # LAYER_VIEWS.to_lyp(PATH.klayout_lyp)

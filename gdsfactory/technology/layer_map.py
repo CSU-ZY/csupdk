@@ -45,3 +45,6 @@ if __name__ == "__main__":
     from gdsfactory.config import PATH
 
     print(lyp_to_dataclass(PATH.klayout_lyp))
+
+
+#运行之后，可以将layer.py修改成与layer.lyp相对应的LayerMap
