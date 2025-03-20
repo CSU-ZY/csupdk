@@ -101,23 +101,22 @@ def free_propagation_region(
 
 # free_propagation_region_input = partial(free_propagation_region, inputs=1)
 
-# free_propagation_region_output = partial(
-#     free_propagation_region, inputs=10, width1=10, width2=20.0
-# )
+# free_propagation_region_output = partial(free_propagation_region, inputs=10, width1=10, width2=20.0)
 
-
-@gf.cell
-def wg(length=5, width=0.5, layer=LAYER.WG):
-    c = gf.Component()
-    c.add_polygon([(-width, 0), (0, 0), (0, length), (-width, length)], layer=layer)
-    c.add_port(
-        name="g1", center=[-width / 2, 0], width=width, orientation=270, layer=layer
-    )#定义每个多边形在左右两边都有一个中心center，将这个连接的线按不同的情况设置
-    c.add_port(
-        name="g2", center=[-width/2 , length], width=width, orientation=90, layer=layer
-    )
-    c.draw_ports()
-    return c
+##定义连接输入输出的波导
+# @gf.cell
+# def wg(length=5, width=0.5, layer=LAYER.WG):
+#     c = gf.Component()
+#     c.add_polygon([(-width, 0), (0, 0), (0, length), (-width, length)], layer=layer)
+#     c.add_port(
+#         name="g1", center=[-width / 2, 0], width=width, orientation=270, layer=layer
+#     )
+#     #定义每个多边形在左右两边都有一个中心center，将这个连接的线按不同的情况设置
+#     c.add_port(
+#         name="g2", center=[-width/2 , length], width=width, orientation=90, layer=layer
+#     )
+#     c.draw_ports()
+#     return c
 
 #AWG由输入FPR、阵列波导、输出FPR组成，用于波长选择和信号分束/合束。
 @gf.cell
@@ -207,27 +206,22 @@ if __name__ == "__main__":
     inputs= 1,
     arms= 9,                                   #阵列波导数量
     outputs= 1,
-    free_propagation_region_input_function= partial(
-    free_propagation_region, width1=2, width2=20.0
-),
-    free_propagation_region_output_function= partial(
-    free_propagation_region, width1=2, width2=20.0
-),
+    free_propagation_region_input_function= partial(free_propagation_region, width1=2, width2=20.0),
+    free_propagation_region_output_function= partial(free_propagation_region, width1=2, width2=20.0),
     fpr_spacing= 50,                            #输入/输出FPR的间距
     arm_spacing= 1,                             #阵列波导间距
 ) 
     
-    wg1 = c << wg(length=10)
-    wg2 = c << wg(length=10)
-    # wg_out_ref.dx =50
-    wg1.connect("g2",awg.ports["I1"])
-    wg2.connect("g2",awg.ports["O1"])
+    # wg1 = c << wg(length=10)
+    # wg2 = c << wg(length=10)
+    # wg1.connect("g2",awg.ports["I1"])
+    # wg2.connect("g2",awg.ports["O1"])
     
-    print(wg1.ports)
-    print(wg2.ports)
+    # print(wg1.ports)
+    # print(wg2.ports)
     print(awg.ports) 
-    print(wg1)
-    print(wg2)
+    # print(wg1)
+    # print(wg2)
     print(awg)
 
     c.show()
